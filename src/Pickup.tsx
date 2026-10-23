@@ -1,9 +1,9 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Truck, BarChart3 } from 'lucide-react'
-import { REGIONS, calcPrice, rupiah, FIXED_FEE } from '../lib/pricing'
-import { usePremium } from '../lib/premium'
-import PremiumModal from '../components/PremiumModal'
+import { REGIONS, calcPrice, rupiah, FIXED_FEE } from './lib/pricing'
+import { usePremium } from './lib/premium'
+import PremiumModal from './components/PremiumModal'
 import './Sirkula.css'
 export default function Pickup() {
   const { premium } = usePremium(); const nav = useNavigate()
@@ -41,3 +41,4 @@ export default function Pickup() {
     </div>
   )
 }
+

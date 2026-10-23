@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
-import { useStore } from '../store/StoreContext'
+import { useStore } from './store/StoreContext'
 
 export type PlanId = 'free' | 'trial' | 'monthly' | 'yearly'
 export interface Sub { plan: PlanId; status: 'none' | 'active' | 'canceled' | 'expired'; startDate: string | null; endDate: string | null; autoRenew: boolean; trialUsed: boolean }
@@ -63,3 +63,4 @@ export function usePremium() {
   const premium = isPremium(sub)
   return { uid, sub, premium, fees: marketplaceFees(premium) }
 }
+
