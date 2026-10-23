@@ -1,0 +1,54 @@
+/*
+ * SIRKULA design tokens (shared, intentionally small).
+ * Only custom properties live here. No selectors for components or pages.
+ * Existing names (--forest-*, --lime, ...) are kept so current pages keep working.
+ * Prefer the semantic --color-* / --space-* / --text-* tokens in new code.
+ */
+:root {
+  /* Brand palette */
+  --forest-900:#0c2a1e; --forest-800:#123b2a; --forest-700:#1b5239;
+  --sage-300:#b9c9b4; --sage-100:#e4ebdf;
+  --ivory:#f6f2e8; --offwhite:#fbfaf6; --charcoal:#1c1f1d;
+  --gray-200:#d9dcd6;
+  --gray-500:#5f665f;          /* was #7a807b (3.6-3.9:1); now >=5.3:1 on all SIRKULA surfaces (WCAG AA) */
+  --lime:#c5f26b; --mint:#7fe0b0;
+  --danger:#c0452f; --warn:#d9a21b;
+  --danger-ink:#a63a26;        /* danger text on tinted backgrounds (4.7:1 on --color-error-bg) */
+  --placeholder:#6f756f;       /* placeholder text on white (4.7:1) */
+
+  /* Semantic colors */
+  --color-bg:var(--offwhite);
+  --color-surface:#fff;
+  --color-surface-alt:var(--ivory);
+  --color-text:var(--charcoal);
+  --color-text-muted:var(--gray-500);
+  --color-border:var(--gray-200);
+  --color-primary:var(--forest-800);
+  --color-primary-hover:var(--forest-700);
+  --color-on-primary:var(--ivory);
+  --color-accent:var(--lime);
+  --color-focus:var(--forest-700);
+  /* Status tones (background + readable ink) */
+  --color-success-bg:#d6ece0; --color-success-ink:var(--forest-800);
+  --color-pending-bg:#f6e7b8; --color-pending-ink:#7a5a00;
+  --color-error-bg:#f4d6cf;   --color-error-ink:var(--danger-ink);
+  --color-info-bg:var(--sage-100); --color-info-ink:var(--forest-800);
+
+  /* Typography (Fraunces + Inter, both SIL OFL 1.1; loaded from index.html) */
+  --font-display:'Fraunces',Georgia,'Times New Roman',serif;
+  --font-body:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
+  --text-xs:.72rem; --text-sm:.85rem; --text-base:1rem; --text-lg:1.2rem; --text-xl:1.6rem; --text-2xl:2rem;
+
+  /* Spacing, shape, elevation */
+  --space-1:4px; --space-2:8px; --space-3:12px; --space-4:16px; --space-5:24px; --space-6:32px; --space-7:48px; --space-8:64px;
+  --radius-sm:8px; --radius:10px; --radius-lg:14px; --radius-pill:99px;
+  --shadow-sm:0 2px 8px rgba(12,42,30,.08);
+  --shadow-md:0 8px 20px rgba(12,42,30,.10);
+  --shadow-lg:0 30px 70px rgba(12,42,30,.35);
+  --focus-ring:0 0 0 3px rgba(197,242,107,.45);
+  --disabled-opacity:.55;
+
+  /* Layering and motion */
+  --z-sticky:20; --z-overlay:100; --z-toast:200;
+  --ease:cubic-bezier(.22,1,.36,1);
+}

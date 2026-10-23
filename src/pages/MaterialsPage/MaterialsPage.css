@@ -1,0 +1,15 @@
+.mat{padding:28px;display:flex;flex-direction:column;gap:18px}
+.mat__head{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;flex-wrap:wrap}.mat__head h1{font-size:2rem}.mat__head p{margin:4px 0 0;color:var(--gray-500)}
+.mat__head>button,.mat__form button{background:var(--forest-800);color:var(--ivory);border:0;padding:10px 16px;border-radius:8px}
+.mat__filters{display:flex;gap:8px;flex-wrap:wrap}.mat__filters input,.mat__filters select,.mat__form input,.mat__form select{padding:9px 12px;border:1px solid var(--gray-200);border-radius:8px;font:inherit;background:#fff}
+.mat__ghost{background:none;border:1px solid var(--gray-200);border-radius:8px;padding:0 14px}
+.mat__scroll{overflow-x:auto;border:1px solid var(--gray-200);border-radius:var(--radius)}
+.mat table{width:100%;border-collapse:collapse;font-size:.88rem;min-width:760px}.mat th{text-align:left;padding:12px;background:var(--ivory);font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;color:var(--gray-500)}
+.mat td{padding:12px;border-top:1px solid var(--gray-200)}.mat tbody tr{cursor:pointer}.mat tbody tr:hover{background:var(--sage-100)}
+.mat__empty{padding:48px;text-align:center;color:var(--gray-500);border:1px dashed var(--gray-200);border-radius:var(--radius)}
+.mat__form{display:flex;flex-direction:column;gap:12px}.mat__form label{display:flex;flex-direction:column;gap:5px;font-size:.85rem}.mat__form em{color:var(--danger);font-style:normal;font-size:.75rem}
+.mat__dl{display:grid;grid-template-columns:110px 1fr;gap:8px;font-size:.9rem}.mat__dl dt{color:var(--gray-500)}.mat__dl dd{margin:0}
+@media (max-width:768px){.mat{padding:18px}}
+.mat__search{position:relative;flex:1;min-width:200px;display:flex;align-items:center}.mat__search svg{position:absolute;left:12px;color:var(--gray-500)}.mat__search input{width:100%;padding-left:36px}
+.mat__form .ui-sel{width:100%}.mat__head>button:hover,.mat__form button:hover{background:var(--forest-700)}.mat__ghost{padding:0 16px}.mat__ghost:hover{background:var(--sage-100)}
+.mat th{position:sticky;top:0}.mat td{transition:background .15s}.mat tbody tr:focus-visible{outline-offset:-2px}

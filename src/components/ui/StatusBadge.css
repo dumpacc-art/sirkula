@@ -1,0 +1,8 @@
+.sbadge{display:inline-block;padding:2px 10px;border-radius:99px;font-size:.72rem;text-transform:capitalize;background:var(--sage-100);color:var(--forest-800)}
+.sbadge--verified,.sbadge--completed{background:var(--lime)}
+.sbadge--exception,.sbadge--rejected{background:#f4d6cf;color:var(--danger)}
+.sbadge--evidence_submitted{background:#f6e7b8;color:#7a5a00}
+.sbadge--active,.sbadge--delivered,.sbadge--accepted{background:var(--lime)}
+.sbadge--pending,.sbadge--proposed,.sbadge--revision,.sbadge--awaiting_review{background:#f6e7b8;color:#7a5a00}
+.sbadge--cancelled{background:#f4d6cf;color:var(--danger)}
+.sbadge--confirmed,.sbadge--preparing,.sbadge--dispatched,.sbadge--matched,.sbadge--processing{background:#d6ece0;color:var(--forest-800)}

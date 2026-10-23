@@ -1,0 +1,6 @@
+.st{padding:28px;display:flex;flex-direction:column;gap:18px;max-width:640px}.st h1{font-size:2rem}.st header p{color:var(--gray-500);font-size:.85rem}
+.st section{display:flex;flex-direction:column;gap:10px;padding-bottom:16px;border-bottom:1px solid var(--gray-200)}.st h3{font-size:1.1rem}.st label{display:flex;flex-direction:column;gap:4px;font-size:.85rem}.st label.row{flex-direction:row;align-items:center;gap:8px}
+.st input:not([type=checkbox]),.st select{padding:9px;border:1px solid var(--gray-200);border-radius:8px;font:inherit}.st em{color:var(--danger);font-style:normal;font-size:.75rem}
+.st__act{display:flex;gap:8px}.st__act button{background:var(--forest-800);color:var(--ivory);border:0;padding:10px 18px;border-radius:8px}.st__act .alt{background:none;color:var(--charcoal);border:1px solid var(--gray-200)}@media (max-width:768px){.st{padding:18px}}
+.st section{background:var(--offwhite);border:1px solid var(--gray-200);border-radius:var(--radius);padding:18px}.st small{color:var(--gray-500);font-size:.78rem}.st .ui-sel{width:100%}
+.st__act button:hover{background:var(--forest-700)}.st__act .alt:hover{background:var(--sage-100)}

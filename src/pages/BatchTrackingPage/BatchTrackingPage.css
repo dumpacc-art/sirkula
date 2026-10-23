@@ -1,0 +1,15 @@
+.bt{padding:28px;display:flex;flex-direction:column;gap:20px}.bt h1{font-size:2rem}.bt header p,.bt__muted{color:var(--gray-500);font-size:.85rem}
+.bt__sel{display:flex;gap:12px;align-items:center;flex-wrap:wrap}.bt select,.bt__add input{padding:9px;border:1px solid var(--gray-200);border-radius:8px;font:inherit}
+.bt__tl{list-style:none;margin:0;padding:0 0 8px;display:flex;gap:6px;overflow-x:auto}.bt__tl li{flex:1;min-width:92px}
+.bt__tl button{width:100%;background:none;border:0;border-top:3px solid var(--gray-200);padding:10px 4px;text-align:left;display:flex;flex-direction:column;gap:6px;font-size:.75rem}
+.bt__tl i{font-style:normal;width:24px;height:24px;border-radius:50%;display:grid;place-items:center;background:var(--gray-200);font-size:.7rem}
+.bt__tl .done button{border-color:var(--forest-700)}.bt__tl .done i{background:var(--forest-700);color:#fff}
+.bt__tl .current button{border-color:var(--lime)}.bt__tl .current i{background:var(--lime)}
+.bt__tl .exception button{border-color:var(--danger)}.bt__tl .exception i{background:var(--danger);color:#fff}.bt__tl .sel span{font-weight:600}
+.bt__grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}.bt__card{border:1px solid var(--gray-200);border-radius:var(--radius);padding:18px}
+.bt__card h3{font-size:1.05rem;margin-bottom:10px}.bt dl{display:grid;grid-template-columns:90px 1fr;gap:6px;font-size:.88rem;margin:0}.bt dt{color:var(--gray-500)}.bt dd{margin:0}
+.bt table{font-size:.88rem;width:100%}.bt td:first-child{text-transform:capitalize;color:var(--gray-500)}.bt__warn{background:#f4d6cf;color:var(--danger);padding:8px 10px;border-radius:8px;font-size:.82rem}
+.bt__ev{display:flex;gap:10px;align-items:center;flex-wrap:wrap;padding:8px 0;border-bottom:1px solid var(--gray-200);font-size:.85rem}
+.bt__add{display:flex;gap:8px;margin:12px 0 6px}.bt__add input{flex:1}.bt button:not(.bt__tl button){background:var(--forest-800);color:var(--ivory);border:0;padding:8px 14px;border-radius:8px}.bt button.alt{background:none;color:var(--charcoal);border:1px solid var(--gray-200)}
+@media (max-width:768px){.bt{padding:18px}}
+.bt__sel .ui-sel{min-width:240px}.bt__card{background:var(--offwhite)}.bt button:not(.bt__tl button):hover{background:var(--forest-700)}.bt button.alt:hover{background:var(--sage-100)}.bt__tl button{cursor:pointer;transition:background .15s}.bt__tl button:hover{background:var(--sage-100)}

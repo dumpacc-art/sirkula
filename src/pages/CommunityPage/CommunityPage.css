@@ -1,0 +1,10 @@
+.cm{padding:28px;display:flex;flex-direction:column;gap:20px}.cm h1{font-size:2rem}.cm header p,.cm small{color:var(--gray-500)}
+.cm__over{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}.cm__tile{padding:18px;background:var(--ivory);border-radius:var(--radius)}.cm__tile p{margin:4px 0}
+.cm__bar{display:flex;justify-content:space-between;align-items:center}.cm__bar h2{font-size:1.4rem}
+.cm button{background:var(--forest-800);color:var(--ivory);border:0;padding:9px 14px;border-radius:8px}
+.cm__board{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}.cm__card{border:1px solid var(--gray-200);border-radius:var(--radius);padding:16px;cursor:pointer}.cm__card:hover{border-color:var(--forest-700)}.cm__card h3{font-size:1.05rem;margin:8px 0 4px}
+.cm__form{display:flex;flex-direction:column;gap:10px;font-size:.88rem}.cm__form label{display:flex;flex-direction:column;gap:4px}.cm__form input,.cm__form select{padding:9px;border:1px solid var(--gray-200);border-radius:8px;font:inherit}
+.cm__form em{color:var(--danger);font-style:normal}.cm__cmt{background:var(--ivory);padding:8px 10px;border-radius:8px;margin:0}
+@media (max-width:768px){.cm{padding:18px}}
+.cm__form .ui-sel{width:100%}.cm button:hover{background:var(--forest-700)}.cm__card{transition:transform .2s,box-shadow .2s,border-color .2s}.cm__card:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(12,42,30,.08)}
+.cm__tile{border:1px solid var(--gray-200);border-left:4px solid var(--lime)}

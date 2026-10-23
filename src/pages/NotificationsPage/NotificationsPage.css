@@ -1,0 +1,7 @@
+.nt{padding:28px;display:flex;flex-direction:column;gap:14px;max-width:820px}.nt h1{font-size:2rem}.nt header{display:flex;justify-content:space-between;align-items:flex-end}.nt header p{margin:2px 0;color:var(--gray-500)}
+.nt button{background:var(--forest-800);color:var(--ivory);border:0;padding:8px 14px;border-radius:8px}.nt button.alt{background:none;color:var(--charcoal);border:1px solid var(--gray-200)}
+.nt__f{display:flex;gap:8px}.nt select{padding:9px;border:1px solid var(--gray-200);border-radius:8px}
+.nt__item{display:flex;justify-content:space-between;gap:14px;padding:14px 16px;border:1px solid var(--gray-200);border-radius:var(--radius)}.nt__item.unread{background:var(--ivory);border-left:4px solid var(--lime)}
+.nt__item p{margin:3px 0;font-size:.9rem}.nt__item small{color:var(--gray-500)}.nt__act{display:flex;gap:6px;align-items:center}.nt__empty{padding:40px;text-align:center;color:var(--gray-500);border:1px dashed var(--gray-200);border-radius:var(--radius)}
+@media (max-width:768px){.nt{padding:18px}.nt__item{flex-direction:column}}
+.nt button:hover{background:var(--forest-700)}.nt button.alt:hover{background:var(--sage-100)}.nt__item{transition:border-color .2s}.nt__item:hover{border-color:var(--sage-300)}

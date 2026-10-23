@@ -1,0 +1,7 @@
+.ui-card{background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius);box-shadow:var(--shadow-sm)}
+.ui-card--pad{padding:var(--space-5)}
+.ui-card--link{transition:transform .2s,box-shadow .2s,border-color .2s}
+.ui-card--link:hover{transform:translateY(-2px);box-shadow:var(--shadow-md);border-color:var(--sage-300)}
+.ui-card__head{display:flex;align-items:center;justify-content:space-between;gap:var(--space-3);margin-bottom:var(--space-4)}
+.ui-card__head h3{font-size:var(--text-lg)}
+.ui-card__act{display:flex;gap:var(--space-2)}

@@ -1,0 +1,5 @@
+.kpi{display:flex;flex-direction:column;gap:6px;padding:18px;border:1px solid var(--gray-200);border-radius:var(--radius);background:var(--ivory);border-top:3px solid var(--lime);transition:transform .2s,box-shadow .2s}
+.kpi:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(12,42,30,.08)}
+.kpi__label{font-size:.78rem;color:var(--gray-500)}
+.kpi__value{font-family:var(--font-display);font-size:1.9rem;color:var(--forest-800)}
+.kpi small{color:var(--gray-500);font-size:.72rem}

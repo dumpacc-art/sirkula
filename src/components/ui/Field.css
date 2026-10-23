@@ -1,0 +1,6 @@
+.ui-field{display:flex;flex-direction:column;gap:6px}
+.ui-field>label{font-size:var(--text-sm);font-weight:500}
+.ui-field__req{color:var(--danger-ink)}
+.ui-field__hint{color:var(--color-text-muted);font-size:var(--text-xs)}
+.ui-field__err{color:var(--danger-ink);font-size:var(--text-xs)}
+.ui-field.has-error input:not([type=checkbox]):not([type=range]),.ui-field.has-error textarea{border-color:var(--danger)}

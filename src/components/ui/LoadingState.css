@@ -1,0 +1,3 @@
+.ui-loading{display:flex;align-items:center;justify-content:center;gap:var(--space-3);padding:var(--space-6);color:var(--color-text-muted);font-size:.9rem}
+.ui-loading__spin{width:18px;height:18px;border-radius:50%;border:2px solid var(--sage-300);border-top-color:var(--color-primary);animation:uiLoadSpin .8s linear infinite}
+@keyframes uiLoadSpin{to{transform:rotate(360deg)}}

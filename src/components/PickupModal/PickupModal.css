@@ -1,0 +1,14 @@
+.pk{display:flex;flex-direction:column;gap:14px}
+.pk label{display:flex;flex-direction:column;gap:5px;font-size:.85rem}
+.pk em{color:var(--danger);font-style:normal;font-size:.75rem}
+.pk__loc{display:flex;flex-direction:column;gap:8px}
+.pk__lbl{font-size:.85rem}
+.pk__geo{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:10px 14px;border-radius:8px;border:1px solid var(--forest-800);background:var(--sage-100);color:var(--forest-800);font-weight:600}
+.pk__geo:hover:not(:disabled){background:var(--lime)}
+.pk__geo:disabled{opacity:.7;cursor:wait}
+.pk__ok{display:flex;gap:6px;flex-wrap:wrap;align-items:center;color:var(--forest-700);font-size:.78rem}
+.pk__ok button{background:none;border:0;padding:0;color:var(--gray-500);text-decoration:underline;font-size:.78rem}
+.pk__submit{background:var(--forest-800);color:var(--ivory);border:0;padding:11px 16px;border-radius:8px;font-weight:600}
+.pk__submit:hover{background:var(--forest-700)}
+.pk__spin{animation:pk-spin 1s linear infinite}
+@keyframes pk-spin{to{transform:rotate(360deg)}}

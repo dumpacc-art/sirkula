@@ -1,0 +1,4 @@
+/* Language switch (moved from the global stylesheet). */
+.lang-switch{display:inline-flex;border:1px solid var(--gray-200);border-radius:99px;overflow:hidden;background:#fff}
+.lang-switch button{background:none;border:0;padding:5px 11px;font-size:.75rem;font-weight:600;color:var(--gray-500);letter-spacing:.04em}
+.lang-switch button.on{background:var(--forest-800);color:var(--ivory)}

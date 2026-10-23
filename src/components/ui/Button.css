@@ -1,0 +1,18 @@
+/* Selectors are doubled (.ui-btn.ui-btn--x) so legacy page rules like `.mk button{...}` cannot override the shared button. */
+.ui-btn.ui-btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--space-2);border:1px solid transparent;border-radius:var(--radius-sm);font-weight:600;line-height:1.2;white-space:nowrap;text-decoration:none}
+.ui-btn.ui-btn--sm{padding:6px 12px;font-size:var(--text-sm)}
+.ui-btn.ui-btn--md{padding:10px 16px;font-size:.92rem}
+.ui-btn.ui-btn--lg{padding:13px 22px;font-size:var(--text-base)}
+.ui-btn.ui-btn--primary{background:var(--color-primary);color:var(--color-on-primary)}
+.ui-btn.ui-btn--primary:not(:disabled):hover{background:var(--color-primary-hover);box-shadow:var(--shadow-sm)}
+.ui-btn.ui-btn--secondary{background:var(--color-surface);color:var(--color-primary);border-color:var(--color-border)}
+.ui-btn.ui-btn--secondary:not(:disabled):hover{border-color:var(--color-primary-hover);background:var(--color-info-bg)}
+.ui-btn.ui-btn--ghost{background:transparent;color:var(--color-text)}
+.ui-btn.ui-btn--ghost:not(:disabled):hover{background:var(--color-info-bg)}
+.ui-btn.ui-btn--danger{background:var(--danger-ink);color:#fff}
+.ui-btn.ui-btn--danger:not(:disabled):hover{background:#8c2f1e}
+.ui-btn.ui-btn:focus-visible{outline:2px solid var(--color-focus);outline-offset:2px}
+.ui-btn.ui-btn:disabled{opacity:var(--disabled-opacity);cursor:not-allowed}
+.ui-btn.is-loading{cursor:progress}
+.ui-btn__spin{width:1em;height:1em;border-radius:50%;border:2px solid currentColor;border-right-color:transparent;animation:uiBtnSpin .7s linear infinite}
+@keyframes uiBtnSpin{to{transform:rotate(360deg)}}

@@ -1,0 +1,4 @@
+.modal__bg{position:fixed;inset:0;background:rgba(12,42,30,.55);backdrop-filter:blur(3px);display:grid;place-items:center;z-index:100;padding:16px}
+.modal{background:var(--offwhite);border-radius:14px;padding:24px;width:100%;max-width:480px;max-height:90vh;overflow:auto;box-shadow:0 30px 70px rgba(12,42,30,.35);border:1px solid var(--gray-200)}
+.modal__head{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid var(--gray-200)}.modal__head h3{font-size:1.2rem}
+.modal__head button{background:var(--sage-100);border:0;width:32px;height:32px;border-radius:50%;display:grid;place-items:center;color:var(--forest-800)}.modal__head button:hover{background:var(--lime)}

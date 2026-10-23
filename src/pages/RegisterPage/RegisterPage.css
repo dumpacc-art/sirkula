@@ -1,0 +1,6 @@
+.rg{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;padding:20px;background:radial-gradient(90% 60% at 100% 0%,var(--sage-100),transparent 60%),var(--ivory)}
+.rg__top{width:100%;max-width:480px;display:flex;justify-content:space-between;align-items:center}.rg__back{display:inline-flex;gap:6px;align-items:center;font-size:.82rem;color:var(--forest-700);text-decoration:none}
+.rg form{background:var(--offwhite);padding:36px;border-radius:16px;width:100%;max-width:480px;display:flex;flex-direction:column;gap:14px;border:1px solid var(--gray-200);box-shadow:0 20px 50px rgba(12,42,30,.08)}
+.rg__logo{font-family:var(--font-display);letter-spacing:.18em;color:var(--forest-700);font-size:.9rem}.rg h1{font-size:1.7rem}.rg__m,.rg small{color:var(--gray-500);font-size:.82rem;margin:0}.rg__m.c{text-align:center}.rg__m a{color:var(--forest-700);font-weight:600}
+.rg label{display:flex;flex-direction:column;gap:5px;font-size:.85rem;font-weight:500}.rg .ui-sel{width:100%}.rg em{color:var(--danger);font-style:normal;font-size:.75rem}
+.rg form>button{background:var(--forest-800);color:var(--ivory);border:0;padding:13px;border-radius:8px;font-weight:600}.rg form>button:hover{background:var(--forest-700)}

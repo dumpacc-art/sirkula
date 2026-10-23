@@ -1,0 +1,12 @@
+.sm{padding:28px;display:flex;flex-direction:column;gap:22px}.sm h1{font-size:2rem}.sm header p,.sm__muted,.sm__facts{color:var(--gray-500);margin:4px 0;font-size:.88rem}
+.sm__input{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;align-items:end;padding:18px;background:var(--ivory);border-radius:var(--radius)}
+.sm__input label{display:flex;flex-direction:column;gap:6px;font-size:.82rem}.sm select{padding:9px;border:1px solid var(--gray-200);border-radius:8px}
+.sm button{background:var(--forest-800);color:var(--ivory);border:0;padding:10px 16px;border-radius:8px}.sm button:disabled{opacity:.5}.sm button.alt{background:none;color:var(--charcoal);border:1px solid var(--gray-200)}
+.sm__anim{padding:20px;background:var(--forest-900);color:var(--sage-300);border-radius:var(--radius)}.sm__anim p{margin:6px 0}.sm__anim .now{color:var(--lime)}.sm__anim .done{color:var(--mint)}.sm__anim button{background:none;border:1px solid var(--sage-300);margin-top:8px}
+.sm__results{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.sm__card{position:relative;border:1px solid var(--gray-200);border-radius:var(--radius);padding:18px}.sm__card.top{border-color:var(--forest-700);box-shadow:0 0 0 2px var(--lime)}
+.sm__score{position:absolute;right:16px;top:14px;font-family:var(--font-display);font-size:1.8rem;color:var(--forest-700)}.sm__card ul{padding-left:18px;font-size:.85rem}.sm__concern{font-size:.8rem;color:#7a5a00}
+.sm__row{display:flex;gap:8px;margin-top:10px}.sm__empty{padding:24px;border:1px dashed var(--gray-200);border-radius:var(--radius);font-size:.9rem}.sm__hist{font-size:.85rem;border-bottom:1px solid var(--gray-200);padding:8px 0;margin:0}
+@media (max-width:768px){.sm{padding:18px}}
+.sm__input .ui-sel{width:100%}.sm__val{color:var(--forest-700);margin-left:4px}.sm button:not(:disabled):hover{background:var(--forest-700)}.sm button.alt:hover{background:var(--sage-100)}
+.sm__card{transition:transform .2s,box-shadow .2s;background:var(--offwhite)}.sm__card:hover{transform:translateY(-2px)}.sm__anim button:hover{background:#ffffff14}

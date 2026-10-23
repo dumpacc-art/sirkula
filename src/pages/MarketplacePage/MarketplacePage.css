@@ -1,0 +1,11 @@
+.mk{padding:28px;display:flex;flex-direction:column;gap:18px}.mk h1{font-size:2rem}.mk header p,.mk__muted{color:var(--gray-500);font-size:.85rem}
+.mk__f{display:flex;gap:10px;flex-wrap:wrap;align-items:center;font-size:.85rem}.mk input[type=text],.mk__f input:not([type]),.mk select{padding:9px;border:1px solid var(--gray-200);border-radius:8px;font:inherit}.mk__f input:not([type]){flex:1;min-width:180px}
+.mk__cols{display:grid;grid-template-columns:1fr 280px;gap:22px;align-items:start}.mk__grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:16px}
+.mk__card{border:1px solid var(--gray-200);border-radius:var(--radius);padding:12px;display:flex;flex-direction:column;gap:4px}.mk__card a{text-decoration:none}.mk__card h3{font-size:1.02rem;margin:8px 0 2px}.mk__card p{margin:2px 0;font-size:.88rem}
+.mk__img{height:130px;border-radius:8px;display:grid;place-items:center;font-family:var(--font-display);font-size:2.6rem;color:#fff}
+.mk button{background:var(--forest-800);color:var(--ivory);border:0;padding:9px 12px;border-radius:8px}.mk button:disabled{opacity:.4}.mk button.x{background:none;color:var(--charcoal);padding:0 6px}
+.mk__cart{border:1px solid var(--gray-200);border-radius:var(--radius);padding:16px;display:flex;flex-direction:column;gap:8px;position:sticky;top:12px}.mk__line{display:flex;justify-content:space-between;margin:0;font-size:.85rem}
+.mk__sell{display:flex;flex-direction:column;gap:6px;margin-top:10px}.mk__sell input{padding:8px;border:1px solid var(--gray-200);border-radius:8px}
+@media (max-width:900px){.mk{padding:18px}.mk__cols{grid-template-columns:1fr}.mk__cart{position:static}}
+.mk__rng{min-width:150px;display:flex;flex-direction:column;gap:6px}.mk button:not(:disabled):hover{background:var(--forest-700)}.mk button.x:hover{background:var(--sage-100)}
+.mk__card{background:var(--offwhite);transition:transform .2s,box-shadow .2s}.mk__card:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(12,42,30,.09)}.mk__cart{background:var(--offwhite)}
