@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Check, Crown, X } from 'lucide-react'
-import { PLANS, YEARLY_PER_MONTH, MARKETPLACE, activate, cancel, canUseTrial, daysLeft, usePremium, useAccountType } from '../lib/premium'
-import { rupiah } from '../lib/pricing'
+import { PLANS, YEARLY_PER_MONTH, MARKETPLACE, activate, cancel, canUseTrial, daysLeft, usePremium, useAccountType } from './lib/premium'
+import { rupiah } from './lib/pricing'
 import './Sirkula.css'
 type P = 'trial' | 'monthly' | 'yearly'
 const BEN = {
@@ -49,3 +49,4 @@ export default function Premium() {
     </div>
   )
 }
+
