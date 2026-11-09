@@ -46,8 +46,7 @@ export default function AnalyticsPage() {
           <div><h3>{t('Cost breakdown (DEMO %)')}</h3><ResponsiveContainer width="100%" height={240}><BarChart data={cost} layout="vertical"><XAxis type="number" /><YAxis type="category" dataKey="name" width={80} /><Tooltip /><Bar dataKey="v" fill="#7fe0b0" /></BarChart></ResponsiveContainer></div>
           <div><h3>{t('Evidence coverage (batches)')}</h3><ResponsiveContainer width="100%" height={240}><BarChart data={cov}><XAxis dataKey="name" /><YAxis allowDecimals={false} /><Tooltip /><Bar dataKey="v" fill="#123b2a" /></BarChart></ResponsiveContainer></div>
         </section>
-        <ExtraCharts rows={rows} keys={[t('Collected'), t('Processed')]} trend={trend} stages={byStage.map(x => ({ name: x.name, value: x.kg }))}
-          pct={total ? [[t('Collected'), collected], [t('Accepted'), accepted], [t('Processed'), processed], [t('Documented'), documented], [t('Verified'), verified]].map(([name, v]) => ({ name: name as string, value: Math.round(Number(v) / total * 100) })) : []}
+          <ExtraCharts rows={rows.map(row => ({ ...row, evidence: row.evidence ?? '' }))} keys={[t('Collected'), t('Processed')]} trend={trend} stages={byStage.map(x => ({ name: x.name, value: x.kg }))} pct={total ? [[t('Collected'), collected], [t('Accepted'), accepted], [t('Processed'), processed], [t('Documented'), documented], [t('Verified'), verified]].map(([name, v]) => ({ name: name as string, value: Math.round(Number(v) / total * 100) })) : []}
           aging={stages.map(st => { const r = rows.filter(b => b.status === st.key); return { name: t(st.label), value: r.length ? Math.round(r.reduce((a, b) => a + (Date.now() - +new Date(b.date)) / 864e5, 0) / r.length) : 0 } })} /></>}
       <small className="an__note">{t('Matching and evidence figures are prototype-wide and ignore the filters above. Trend and cost charts are static demo data. No environmental savings are estimated here.')}</small>
     </div>
