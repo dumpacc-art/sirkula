@@ -1,0 +1,15 @@
+.shell{display:flex;width:100%;max-width:100%;min-height:100vh;background:var(--color-bg)}
+.shell__main{flex:1;min-width:0;display:flex;flex-direction:column}
+.shell__content{flex:1;min-width:0;width:100%}
+.shell__content>*{width:100%;min-width:0;max-width:1280px;margin-left:auto;margin-right:auto}
+
+/* mobile: konten tidak tertutup bar navigasi bawah */
+@media (max-width:768px){
+  .shell__content{padding-bottom:calc(92px + env(safe-area-inset-bottom,0px));overflow-x:clip}
+  .shell__content img,.shell__content video,.shell__content canvas,.shell__content svg{max-width:100%}
+}
+
+/* transisi masuk halaman: hanya geser tipis, tidak pernah menyembunyikan konten */
+.shell__content{animation:shellIn .18s ease-out}
+@keyframes shellIn{from{transform:translateY(6px)}to{transform:none}}
+@media (prefers-reduced-motion:reduce){.shell__content{animation:none}}

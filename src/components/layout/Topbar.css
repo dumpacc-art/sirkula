@@ -1,0 +1,12 @@
+.tb{display:flex;align-items:center;gap:16px;padding:12px 32px;border-bottom:1px solid var(--color-border);background:color-mix(in srgb,var(--color-bg) 82%,transparent);backdrop-filter:saturate(1.4) blur(12px);-webkit-backdrop-filter:saturate(1.4) blur(12px);position:sticky;top:0;z-index:20}
+.tb__crumb{display:inline-flex;align-items:center;gap:8px;font-family:var(--font-family-display);font-weight:var(--font-weight-bold);color:var(--color-heading);font-size:var(--font-size-md)}
+.tb__crumb svg{color:var(--color-primary)}
+.tb__tag{margin-left:auto;font-size:.68rem;letter-spacing:.14em;color:var(--color-text-muted);padding:4px 10px;border:1px solid var(--color-border);border-radius:var(--radius-pill);background:var(--color-surface)}
+.tb__r{display:flex;align-items:center;gap:14px}
+.tb__bell{position:relative;background:var(--color-surface);border:1px solid var(--color-border);width:38px;height:38px;border-radius:50%;display:grid;place-items:center;color:var(--color-primary)}
+.tb__bell:hover{background:var(--color-accent);border-color:var(--color-accent);color:var(--color-brand-900)}
+.tb__badge{position:absolute;top:-5px;right:-5px;background:var(--color-brand-900);color:var(--color-accent);font-size:.65rem;font-style:normal;font-weight:var(--font-weight-bold);border-radius:99px;padding:1px 6px;border:2px solid var(--color-bg)}
+.tb__user{display:flex;align-items:center;gap:10px}.tb__user b{font-size:var(--font-size-sm)}
+.tb__avatar{display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--color-brand-900);color:var(--color-accent);font-family:var(--font-family-display);font-weight:var(--font-weight-bold);font-size:var(--font-size-sm)}
+.tb__logo{display:none;font-family:var(--font-family-display);font-weight:var(--font-weight-bold);letter-spacing:.18em;font-size:1rem;color:var(--color-heading)}
+@media (max-width:768px){.tb{padding:10px 16px;padding-top:calc(10px + env(safe-area-inset-top,0px))}.tb__tag,.tb__user b,.tb__crumb{display:none}.tb__logo{display:block}.tb__r{margin-left:auto}.tb__bell{width:40px;height:40px}}

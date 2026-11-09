@@ -1,0 +1,5 @@
+.trk__map{height:100%;min-height:420px;width:100%;border-radius:var(--radius);border:1px solid var(--color-border)}
+.trk__mk span{display:grid;place-items:center;width:30px;height:30px;border-radius:50%;border:3px solid var(--color-white);font-weight:var(--font-weight-bold);font-size:var(--font-size-sm);color:var(--color-white);box-shadow:var(--shadow-md)}
+.trk__mk--pickup span{background:var(--color-primary)}
+.trk__mk--fac span{background:var(--color-fresh-700);border-radius:8px}
+.trk__mk--veh span{background:var(--color-amber-500);color:var(--color-charcoal);border-radius:8px;transform:rotate(-8deg)}

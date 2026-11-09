@@ -1,0 +1,14 @@
+.pkm{display:flex;flex-direction:column;gap:14px}
+.pkm label{display:flex;flex-direction:column;gap:5px;font-size:.85rem}
+.pkm em{color:var(--danger);font-style:normal;font-size:.75rem}
+.pkm__loc{display:flex;flex-direction:column;gap:8px}
+.pkm__lbl{font-size:.85rem}
+.pkm__geo{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:10px 14px;border-radius:8px;border:1px solid var(--forest-800);background:var(--sage-100);color:var(--forest-800);font-weight:600}
+.pkm__geo:hover:not(:disabled){background:var(--lime)}
+.pkm__geo:disabled{opacity:.7;cursor:wait}
+.pkm__ok{display:flex;gap:6px;flex-wrap:wrap;align-items:center;color:var(--forest-700);font-size:.78rem}
+.pkm__ok button{background:none;border:0;padding:0;color:var(--gray-500);text-decoration:underline;font-size:.78rem}
+.pkm__submit{background:var(--forest-800);color:var(--ivory);border:0;padding:11px 16px;border-radius:8px;font-weight:600}
+.pkm__submit:hover{background:var(--forest-700)}
+.pkm__spin{animation:pkm-spin 1s linear infinite}
+@keyframes pkm-spin{to{transform:rotate(360deg)}}

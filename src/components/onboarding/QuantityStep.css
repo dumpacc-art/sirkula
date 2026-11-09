@@ -1,0 +1,15 @@
+.qty{display:flex;flex-direction:column;gap:16px}
+.qty__head h2{font-size:var(--font-size-2xl)}
+.qty__head p{margin:4px 0 0;color:var(--color-text-secondary)}
+.qty__grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.qty__grid label{display:flex;flex-direction:column;gap:6px;font-size:var(--font-size-sm);font-weight:var(--font-weight-semibold)}
+.qty__grid small{font-weight:400;color:var(--color-text-muted);font-size:var(--font-size-xs)}
+.qty__grid em{font-style:normal;font-weight:400;color:var(--color-error-ink);font-size:var(--font-size-xs)}
+.qty__full{grid-column:1 / -1}
+.qty__full textarea{resize:vertical;font:inherit}
+.qty__count{text-align:right;font-variant-numeric:tabular-nums}
+.qty__unit{position:relative;display:flex;align-items:center}
+.qty__unit input{width:100%;padding-right:48px;font-variant-numeric:tabular-nums}
+.qty__unit>span{position:absolute;right:14px;color:var(--color-text-muted);font-weight:400;pointer-events:none}
+.qty__nav{display:flex;justify-content:space-between;gap:8px}
+@media (max-width:560px){.qty__grid{grid-template-columns:1fr}}

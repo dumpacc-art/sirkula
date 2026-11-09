@@ -1,0 +1,62 @@
+/* Pickup page: header + stepper + the step body. Step bodies share the .pw__* classes (card, tiles, actions). */
+.pkp{display:flex;flex-direction:column;gap:20px;padding:32px;max-width:1040px}
+.pkp__head{display:flex;flex-direction:column;gap:6px}
+.pkp__eyebrow{display:inline-flex;align-self:flex-start;align-items:center;padding:4px 12px;border-radius:var(--radius-pill);background:var(--color-brand-900);color:var(--color-accent);font-size:var(--font-size-xs);font-weight:var(--font-weight-bold);letter-spacing:var(--letter-spacing-caps);text-transform:uppercase}
+.pkp__head h1{margin-top:6px}
+.pkp__head p{margin:0;max-width:68ch;color:var(--color-text-secondary)}
+.pkp__resume{align-self:flex-start;padding:9px 16px;border-radius:var(--radius-pill);border:1px dashed var(--color-primary);background:var(--color-info-bg);color:var(--color-primary);font-weight:var(--font-weight-semibold);font-size:var(--font-size-sm)}
+.pkp__resume:hover{background:var(--color-brand-300)}
+
+/* ---- shared step pieces ---- */
+.pw__stack{display:flex;flex-direction:column;gap:20px}
+.pw__card{background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-xl);box-shadow:var(--shadow-sm);padding:28px}
+.pw__muted{margin:0;color:var(--color-text-muted);font-size:var(--font-size-sm);display:flex;align-items:center;gap:6px}
+
+/* Detail: inner progress (location → photo → types → quantity → review) */
+.pw__sub{display:flex;flex-direction:column;gap:10px;margin-bottom:22px;padding-bottom:18px;border-bottom:1px solid var(--color-border)}
+.pw__subTxt{font-size:var(--font-size-sm);color:var(--color-text-muted);font-variant-numeric:tabular-nums}
+.pw__subTxt b{color:var(--color-heading)}
+.pw__bar{height:6px;border-radius:var(--radius-pill);background:var(--color-neutral-100);overflow:hidden}
+.pw__bar span{display:block;height:100%;border-radius:inherit;background:linear-gradient(90deg,var(--color-primary),var(--color-fresh-500));transition:width .4s var(--ease)}
+
+/* Detail: optional price estimate */
+.pw__est{border:1px solid var(--color-border);border-radius:var(--radius-xl);background:var(--color-surface);box-shadow:var(--shadow-sm)}
+.pw__est>summary{display:flex;flex-direction:column;gap:2px;padding:18px 24px;cursor:pointer;list-style:none;font-family:var(--font-family-display);font-weight:var(--font-weight-bold);color:var(--color-heading)}
+.pw__est>summary::-webkit-details-marker{display:none}
+.pw__est>summary small{font-family:var(--font-family-body);font-weight:400;font-size:var(--font-size-sm);color:var(--color-text-muted)}
+.pw__est>summary::after{content:'+';position:absolute;right:24px;font-size:1.4rem;line-height:1;color:var(--color-primary)}
+.pw__est{position:relative}.pw__est[open]>summary::after{content:'−'}
+.pw__estBody{padding:0 24px 24px}
+
+/* Order tiles (partner + confirm steps) */
+.pw__tiles{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.pw__tiles>div{display:flex;flex-direction:column;gap:2px;padding:12px 14px;border-radius:var(--radius);background:var(--color-surface-alt);min-width:0}
+.pw__tiles svg{color:var(--color-primary);margin-bottom:2px}
+.pw__tiles small{font-size:var(--font-size-xs);color:var(--color-text-muted)}
+.pw__tiles b{font-size:var(--font-size-base);font-variant-numeric:tabular-nums;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.pw__tile--wide{grid-column:span 2}
+
+/* Confirm */
+.pw__confirm{display:flex;flex-direction:column;gap:22px}
+.pw__confirmHead{display:flex;align-items:center;gap:16px}
+.pw__badge{flex-shrink:0;display:grid;place-items:center;width:52px;height:52px;border-radius:16px;background:var(--color-brand-900);color:var(--color-accent)}
+.pw__confirmHead small{font-size:var(--font-size-xs);letter-spacing:var(--letter-spacing-caps);text-transform:uppercase;color:var(--color-text-muted);font-weight:var(--font-weight-bold)}
+.pw__confirmHead h2{font-size:var(--font-size-2xl)}
+.pw__confirmHead p{margin:2px 0 0;display:flex;align-items:center;gap:5px;flex-wrap:wrap;font-size:var(--font-size-sm);color:var(--color-text-secondary)}
+.pw__price{padding:20px;border-radius:var(--radius-lg);background:var(--color-surface-alt)}
+.pw__price h3{font-size:var(--font-size-lg);margin-bottom:12px}
+.pw__price dl{display:grid;grid-template-columns:1fr auto;gap:10px 16px;font-variant-numeric:tabular-nums}
+.pw__price dt{color:var(--color-text-secondary)}
+.pw__price dt em{display:block;font-style:normal;font-size:var(--font-size-xs);color:var(--color-text-muted)}
+.pw__price dd{margin:0;text-align:right;font-weight:var(--font-weight-semibold)}
+.pw__price .pw__total{padding-top:12px;border-top:1px dashed var(--color-border-strong);font-family:var(--font-family-display);font-size:var(--font-size-xl);font-weight:var(--font-weight-bold);color:var(--color-heading)}
+.pw__actions{display:flex;justify-content:flex-end;align-items:center;gap:10px;flex-wrap:wrap}
+
+@media (max-width:820px){
+  .pkp{padding:18px;gap:16px}
+  .pw__card{padding:18px;border-radius:var(--radius-lg)}
+  .pw__tiles{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .pw__actions{flex-direction:column-reverse;align-items:stretch}
+  .pw__actions .ui-btn{width:100%}
+  .pw__est>summary{padding:16px 18px;padding-right:44px}.pw__est>summary::after{right:18px}.pw__estBody{padding:0 14px 18px}
+}

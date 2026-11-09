@@ -1,0 +1,27 @@
+.sb{display:flex;flex-direction:column;background:var(--color-brand-900);color:#d9e6dd;height:100vh;position:sticky;top:0;overflow:hidden;flex-shrink:0;border-right:1px solid rgba(255,255,255,.04)}
+/* Lebar collapse 76px: tombol 40px + padding 18px kiri-kanan = ikon tepat di tengah, sejajar dengan ikon menu */
+.sb__head{display:flex;align-items:center;gap:12px;padding:20px 18px 16px;flex:none}
+.sb__logo{flex:none;font-family:var(--font-family-display);font-weight:var(--font-weight-bold);letter-spacing:.2em;font-size:1rem;color:#fff}
+.sb__brand{position:relative;flex:none;display:grid;place-items:center;width:40px;height:40px;padding:0;border:0;border-radius:var(--radius-sm);background:none;color:#8fa89a}
+.sb__brand>*{grid-area:1/1;transition:opacity .18s,transform .18s}
+.sb__mark{display:block;width:30px;height:30px}
+.sb__swap{opacity:0;transform:scale(.8)}
+.sb__brand:hover,.sb__brand:focus-visible{background:rgba(255,255,255,.08);color:var(--color-accent)}
+.sb__brand:hover .sb__mark,.sb__brand:focus-visible .sb__mark{display:block;width:30px;height:30px}
+.sb__brand:hover .sb__swap,.sb__brand:focus-visible .sb__swap{opacity:1;transform:none}
+.sb__nav{display:flex;flex-direction:column;gap:2px;padding:0 12px 12px;overflow-y:auto;overflow-x:hidden;flex:1;min-height:0}
+.sb__group{padding:16px 12px 6px;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:#6f8a7b;font-weight:var(--font-weight-bold);white-space:nowrap}
+.sb__group:first-child{padding-top:4px}
+.sb__rule{border:0;border-top:1px solid rgba(255,255,255,.08);margin:10px 8px;width:calc(100% - 16px)}
+.sb__link{position:relative;display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:var(--radius);color:#b3c8bb;text-decoration:none;font-size:var(--font-size-base);white-space:nowrap;transition:color .2s,background .2s}
+.sb__link>*{position:relative;z-index:1}
+.sb__link svg{flex:none}
+.sb__link:not(.active):hover{color:#fff;background:rgba(255,255,255,.07)}
+.sb__link.active{color:var(--color-brand-900);font-weight:var(--font-weight-bold)}
+.sb__active{position:absolute!important;inset:0;background:var(--color-accent);border-radius:var(--radius);z-index:0!important}
+/* collapsed: ikon & indikator aktif di tengah kotak 52x40 */
+.sb--collapsed .sb__link{justify-content:center;gap:0;padding:10px 0}
+.sb--collapsed .sb__rule:first-child{display:none}
+.sb__foot{flex:none;padding:8px 12px 16px;border-top:1px solid rgba(255,255,255,.08)}
+.sb__nav::-webkit-scrollbar-thumb{background:#ffffff26;border-color:transparent}
+@media (max-width:768px){.sb{display:none}}  /* di mobile, navigasi pindah ke MobileNav (bar bawah) */

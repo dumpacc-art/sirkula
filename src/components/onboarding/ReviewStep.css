@@ -1,0 +1,31 @@
+.rv{display:flex;flex-direction:column;gap:16px}
+.rv__head h2{font-size:var(--font-size-2xl)}
+.rv__head p{margin:4px 0 0;color:var(--color-text-secondary)}
+.rv__cards{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.rv__card{display:flex;flex-direction:column;gap:10px;padding:16px;border:1px solid var(--color-border);border-radius:var(--radius);background:var(--color-surface);min-width:0}
+.rv__card--wide{grid-column:1 / -1}
+.rv__ch{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.rv__ch h3{font-size:var(--font-size-lg)}
+.rv__ch button{display:inline-flex;align-items:center;gap:4px;background:none;border:0;color:var(--color-primary);font-size:var(--font-size-sm);font-weight:var(--font-weight-semibold);padding:4px}
+.rv__ch button:hover{text-decoration:underline}
+.rv__addr{margin:0;font-size:var(--font-size-sm)}
+.rv__dl{display:grid;grid-template-columns:auto 1fr;gap:6px 14px;margin:0;font-size:var(--font-size-sm)}
+.rv__dl dt{color:var(--color-text-muted)}
+.rv__dl dd{margin:0;text-align:right}
+.rv__num{font-variant-numeric:tabular-nums}
+.rv__muted{margin:0;color:var(--color-text-muted);font-size:var(--font-size-sm)}
+.rv__photo{width:100%;max-height:200px;object-fit:cover;border-radius:var(--radius-sm);border:1px solid var(--color-border)}
+.rv__group{display:flex;flex-direction:column;gap:6px}
+.rv__group ul{margin:0;padding-left:18px;font-size:var(--font-size-sm)}
+.rv__tag{align-self:flex-start;font-size:var(--font-size-xs);font-weight:var(--font-weight-semibold);padding:2px 10px;border-radius:var(--radius-pill);background:var(--color-info-bg);color:var(--color-info-ink)}
+.rv__tag--organic{background:var(--color-success-bg);color:var(--color-success-ink)}
+.rv__tag--residual{background:var(--color-warning-bg);color:var(--color-warning-ink)}
+.rv__seg--ok{border-color:var(--color-success);background:var(--color-success-bg)}
+.rv__seg--bad{border-color:var(--color-error);background:var(--color-error-bg)}
+.rv__seg--bad .rv__status{color:var(--color-error-ink)}
+.rv__seg--ok .rv__status{color:var(--color-success-ink)}
+.rv__seg ul{margin:0;padding-left:18px;font-size:var(--font-size-sm);color:var(--color-error-ink)}
+.rv__status{margin:0;font-size:var(--font-size-sm)}
+.rv__err{margin:0;color:var(--color-error-ink);font-size:var(--font-size-sm)}
+.rv__nav{display:flex;justify-content:space-between;gap:8px}
+@media (max-width:620px){.rv__cards{grid-template-columns:1fr}}

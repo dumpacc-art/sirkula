@@ -1,0 +1,31 @@
+.pls{display:flex;flex-direction:column;gap:14px}
+.pls__head h2{font-size:var(--font-size-2xl)}
+.pls__head p{margin:4px 0 0;color:var(--color-text-secondary)}
+.pls__search{display:flex;gap:8px}
+.pls__inwrap{position:relative;flex:1;min-width:0;display:flex;align-items:center}
+.pls__inwrap>svg{position:absolute;left:14px;color:var(--color-text-muted);pointer-events:none}
+.pls__search .pls__inwrap>input:not([type=checkbox]):not([type=range]):not([type=radio]){width:100%;padding-left:42px}
+.pls__err{margin:0;color:var(--color-error-ink);font-size:var(--font-size-sm)}
+.pls__hint{margin:0;font-size:var(--font-size-sm);color:var(--color-text-muted);font-variant-numeric:tabular-nums}
+.pls__gps{display:flex;flex-direction:column;gap:8px;align-items:flex-start}
+.pls__ok{font-size:var(--font-size-sm);color:var(--color-success-ink);font-weight:var(--font-weight-semibold)}
+.pls__state{width:100%;padding:12px 14px;border-radius:var(--radius-sm);border:1px solid var(--color-border)}
+.pls__state b{display:block;font-size:var(--font-size-sm)}
+.pls__state p{margin:4px 0 0;font-size:var(--font-size-sm);color:var(--color-text-secondary)}
+.pls__state--denied{background:var(--color-warning-bg);border-color:var(--color-warning)}
+.pls__state--denied b{color:var(--color-warning-ink)}
+.pls__state--error{background:var(--color-error-bg);border-color:var(--color-error)}
+.pls__state--error b{color:var(--color-error-ink)}
+.pls__fields{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.pls__fields label{display:flex;flex-direction:column;gap:6px;font-size:var(--font-size-sm);font-weight:var(--font-weight-semibold)}
+.pls__full{grid-column:1 / -1}
+.pls__fields textarea{resize:vertical;font:inherit}
+.pls__fields em{font-style:normal;font-weight:400;color:var(--color-error-ink);font-size:var(--font-size-xs)}
+.pls__actions{display:flex;justify-content:flex-end}
+@media (max-width:560px){.pls__fields{grid-template-columns:1fr}}
+.pls__sk{display:flex;flex-direction:column;gap:8px;padding:12px;border:1px solid var(--color-border);border-radius:var(--radius-sm);background:var(--color-surface)}
+.pls__road{display:flex;align-items:flex-start;gap:8px;padding:9px 12px;border-radius:var(--radius-sm);font-size:var(--font-size-sm);line-height:var(--line-height-snug);animation:plsIn .3s var(--ease) both}
+.pls__road svg{flex-shrink:0;margin-top:1px}
+.pls__road--ok{background:var(--color-success-bg);color:var(--color-success-ink)}
+.pls__road--warn{background:var(--color-warning-bg);color:var(--color-warning-ink)}
+@keyframes plsIn{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}

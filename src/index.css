@@ -1,0 +1,44 @@
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+html,body{max-width:100%;overflow-x:clip}
+body{margin:0;min-height:100vh;font-family:var(--font-family-body);font-size:var(--font-size-base);line-height:var(--line-height-body);letter-spacing:var(--letter-spacing-normal);color:var(--color-text);background:var(--color-bg);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+h1,h2,h3,h4{font-family:var(--font-family-display);font-weight:var(--font-weight-bold);line-height:var(--line-height-tight);letter-spacing:var(--letter-spacing-tight);color:inherit;margin:0}
+h1{font-size:var(--font-size-3xl);letter-spacing:-.025em}h2{font-size:var(--font-size-2xl)}h3{font-size:var(--font-size-xl)}h4{font-size:var(--font-size-lg)}
+.num,table{font-variant-numeric:tabular-nums lining-nums}
+code,kbd,.mono{font-family:var(--font-family-mono)}
+a{color:inherit}
+button{font:inherit;cursor:pointer}
+@media (prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+
+/* ---------- Global form controls (every input is styled, no browser defaults) ---------- */
+::selection{background:var(--lime);color:var(--forest-900)}
+::placeholder{opacity:1}
+:focus-visible{outline:2px solid var(--forest-700);outline-offset:2px}
+input:not([type=checkbox]):not([type=range]):not([type=radio]),textarea,select{font:inherit;color:var(--charcoal);background:#fff;border:1px solid var(--color-border-strong);border-radius:var(--radius-sm);padding:10px 13px;transition:border-color .2s,box-shadow .2s}
+input::placeholder,textarea::placeholder{color:#8a978f}
+input:not([type=checkbox]):not([type=range]):hover,textarea:hover{border-color:var(--sage-300)}
+input:not([type=checkbox]):not([type=range]):focus,textarea:focus{outline:0;border-color:var(--forest-800);box-shadow:var(--focus-ring)}
+input[type=number]{-moz-appearance:textfield;appearance:textfield}
+input[type=number]::-webkit-inner-spin-button,input[type=number]::-webkit-outer-spin-button{-webkit-appearance:none;margin:0}
+/* checkbox: square box with a crisp upright check (SVG, two straight strokes), not a rotated border */
+input[type=checkbox]{appearance:none;-webkit-appearance:none;width:20px;height:20px;border:2px solid var(--color-border-strong);border-radius:6px;background:#fff center/14px 14px no-repeat;display:inline-block;vertical-align:middle;margin:0;cursor:pointer;transition:background-color .15s,border-color .15s,box-shadow .15s;flex-shrink:0}
+input[type=checkbox]:hover{border-color:var(--forest-800)}
+input[type=checkbox]:checked{background-color:var(--forest-800);border-color:var(--forest-800);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='3.4' stroke-linecap='square' stroke-linejoin='miter'%3E%3Cpath d='M4.5 12.5 9.5 17.5 19.5 6.5'/%3E%3C/svg%3E")}
+input[type=checkbox]:focus-visible{outline:0;box-shadow:var(--focus-ring)}
+/* range slider */
+input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:6px;border-radius:99px;background:linear-gradient(to right,var(--forest-700) var(--fill,50%),var(--gray-200) var(--fill,50%));outline:0;cursor:pointer;padding:0;border:0}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;border-radius:50%;background:var(--lime);border:3px solid var(--forest-800);box-shadow:0 2px 6px rgba(12,42,30,.25);transition:transform .15s}
+input[type=range]::-moz-range-thumb{width:14px;height:14px;border-radius:50%;background:var(--lime);border:3px solid var(--forest-800);box-shadow:0 2px 6px rgba(12,42,30,.25)}
+input[type=range]::-moz-range-track{height:6px;border-radius:99px;background:var(--gray-200)}input[type=range]::-moz-range-progress{height:6px;border-radius:99px;background:var(--forest-700)}
+input[type=range]:hover::-webkit-slider-thumb{transform:scale(1.15)}input[type=range]:focus-visible{outline:0}input[type=range]:focus-visible::-webkit-slider-thumb{box-shadow:0 0 0 4px rgba(197,242,107,.55)}
+/* buttons: shared hover/press/disabled */
+button{transition:transform .15s,background .2s,border-color .2s,opacity .2s,box-shadow .2s}
+button:not(:disabled):active{transform:translateY(1px)}button:disabled{cursor:not-allowed}
+/* scrollbars */
+*{scrollbar-width:thin;scrollbar-color:var(--color-border-strong) transparent}
+::-webkit-scrollbar{width:10px;height:10px}::-webkit-scrollbar-thumb{background:var(--color-border-strong);border-radius:10px;border:2px solid var(--offwhite)}::-webkit-scrollbar-thumb:hover{background:var(--gray-500)}
+/* tables & misc */
+table{border-spacing:0}dl{margin:0}
+
+/* ---------- App-wide page rhythm (redesign) ---------- */
+.shell__content{background:radial-gradient(900px 340px at 85% -80px,rgba(197,242,107,.16),transparent 70%),var(--color-bg)}

@@ -1,0 +1,2 @@
+.fck{display:inline-grid;place-items:center;flex-shrink:0;border-radius:6px;border:2px solid var(--color-border-strong);background:var(--color-surface);color:#fff;transition:background .2s,border-color .2s}
+.fck--on{background:var(--color-primary);border-color:var(--color-primary)}

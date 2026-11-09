@@ -1,0 +1,132 @@
+/*
+ * SIRKULA design tokens (v2 redesign: emerald primary, cool green-tinted neutrals, larger radii, softer shadows). Custom properties only; no component or page selectors.
+ * Canonical names: --color-*, --font-family-*, --font-size-*, --font-weight-*, --line-height-*,
+ * --letter-spacing-*, --space-*, --radius-*, --shadow-*. Use these in new code.
+ * Legacy names (--forest-*, --sage-*, --gray-*, --ivory, --offwhite, --charcoal, --lime, --danger,
+ * --warn, --font-display, --font-body, --text-*) are aliases kept so existing pages keep working.
+ */
+:root {
+  /* ---- Brand: deep forest + emerald (redesign) ---- */
+  --color-brand-900:#0b2a1f;   /* deep forest: headings, sidebar, dark surfaces */
+  --color-brand-800:#0f6b47;   /* primary: buttons, links, active states (6.5:1 on white) */
+  --color-brand-700:#0b5638;   /* hover, focus */
+  --color-brand-300:#b4cdbd;   /* sage: hover borders */
+  --color-brand-100:#e3f1e8;   /* tinted info surface */
+
+  /* ---- Sustainability and success: fresh green ---- */
+  --color-fresh-500:#22c55e;   /* fills, icons, progress. Not for text on white */
+  --color-fresh-700:#15803d;   /* text and icons on white (5.0:1) */
+  --color-fresh-100:#dcfce7;   /* success surface (fresh-700 on it: 4.6:1) */
+
+  /* ---- Warm neutrals: backgrounds, borders ---- */
+  --color-neutral-50:#f3f6f1;  /* page background (cool, slightly green) */
+  --color-neutral-100:#eaf0e6; /* panels, alternate sections */
+  --color-neutral-200:#dde6d9; /* hairlines */
+  --color-neutral-300:#c7d3c2; /* hover borders */
+  --color-neutral-500:#5b695f; /* muted text (5.1:1 on neutral-50) */
+  --color-white:#ffffff;
+
+  /* ---- Text: charcoal and dark slate ---- */
+  --color-charcoal:#14211a;    /* primary text */
+  --color-slate:#34423a;       /* secondary text */
+
+  /* ---- Warning and approaching schedule: amber ---- */
+  --color-amber-500:#f59e0b;   /* fills, dots. Not for text */
+  --color-amber-800:#92400e;   /* text on amber-100 (6.4:1) */
+  --color-amber-100:#fef3c7;
+
+  /* ---- Error and urgent alert: red (reserved for errors) ---- */
+  --color-red-600:#dc2626;     /* borders, icons */
+  --color-red-700:#b91c1c;     /* text on white (6.5:1), text on red-100 (5.3:1) */
+  --color-red-100:#fee2e2;
+
+  /* ---- Semantic colors (use these in components) ---- */
+  --color-bg:var(--color-neutral-50);
+  --color-bg-alt:var(--color-neutral-100);
+  --color-surface:var(--color-white);
+  --color-surface-alt:var(--color-neutral-100);
+  --color-text:var(--color-charcoal);
+  --color-text-secondary:var(--color-slate);
+  --color-text-muted:var(--color-neutral-500);
+  --color-heading:var(--color-brand-900);
+  --color-border:var(--color-neutral-200);
+  --color-border-strong:var(--color-neutral-300);
+  --color-primary:var(--color-brand-800);
+  --color-primary-hover:var(--color-brand-700);
+  --color-on-primary:#ffffff;
+  --color-accent:#c5f26b;      /* lime: highlight on dark surfaces only */
+  --color-focus:var(--color-brand-700);
+  --color-success:var(--color-fresh-700);
+  --color-success-bg:var(--color-fresh-100);
+  --color-success-ink:var(--color-fresh-700);
+  --color-warning:var(--color-amber-500);
+  --color-warning-bg:var(--color-amber-100);
+  --color-warning-ink:var(--color-amber-800);
+  --color-error:var(--color-red-600);
+  --color-error-bg:var(--color-red-100);
+  --color-error-ink:var(--color-red-700);
+  --color-info-bg:var(--color-brand-100);
+  --color-info-ink:var(--color-brand-800);
+  /* status aliases used by existing rules */
+  --color-pending-bg:var(--color-warning-bg);
+  --color-pending-ink:var(--color-warning-ink);
+
+  /* ---- Typography: families ---- */
+  --font-family-display:'Instrument Sans',system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
+  --font-family-body:'Work Sans',system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
+  --font-family-mono:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+
+  /* ---- Typography: weights ---- */
+  --font-weight-regular:400;
+  --font-weight-semibold:600;  /* renders as Bold (700) with the shipped files */
+  --font-weight-bold:700;
+
+  /* ---- Typography: sizes (base 15px for dense dashboards) ---- */
+  --font-size-xs:.75rem;       /* 12px: captions, badges */
+  --font-size-sm:.8125rem;     /* 13px: labels, hints */
+  --font-size-base:.9375rem;   /* 15px: body */
+  --font-size-md:1rem;         /* 16px */
+  --font-size-lg:1.125rem;     /* 18px: card titles */
+  --font-size-xl:1.375rem;     /* 22px: h3 */
+  --font-size-2xl:1.75rem;     /* 28px: h2, KPI values */
+  --font-size-3xl:2.125rem;    /* 34px: h1 */
+
+  /* ---- Typography: line height ---- */
+  --line-height-tight:1.2;     /* headings */
+  --line-height-snug:1.35;     /* compact UI */
+  --line-height-body:1.55;     /* paragraphs */
+
+  /* ---- Typography: letter spacing ---- */
+  --letter-spacing-tight:-.02em;   /* headings */
+  --letter-spacing-normal:0;
+  --letter-spacing-button:.01em;
+  --letter-spacing-wide:.04em;     /* badges, small caps */
+  --letter-spacing-caps:.08em;     /* uppercase labels */
+
+  /* ---- Legacy typography aliases (values unchanged) ---- */
+  --font-display:var(--font-family-display);
+  --font-body:var(--font-family-body);
+  --text-xs:.72rem; --text-sm:.85rem; --text-base:1rem; --text-lg:1.2rem; --text-xl:1.6rem; --text-2xl:2rem;
+
+  /* ---- Spacing, shape, elevation ---- */
+  --space-1:4px; --space-2:8px; --space-3:12px; --space-4:16px; --space-5:24px; --space-6:32px; --space-7:48px; --space-8:64px;
+  --radius-sm:10px; --radius:14px; --radius-lg:18px; --radius-xl:24px; --radius-pill:99px;
+  --shadow-sm:0 1px 2px rgba(11,42,31,.05),0 2px 10px rgba(11,42,31,.04);
+  --shadow-md:0 12px 32px -10px rgba(11,42,31,.18);
+  --shadow-lg:0 30px 70px rgba(11,42,31,.35);
+  --focus-ring:0 0 0 3px rgba(15,107,71,.22);
+  --disabled-opacity:.55;
+
+  /* ---- Layering and motion ---- */
+  --z-sticky:20; --z-overlay:100; --z-toast:200;
+  --ease:cubic-bezier(.22,1,.36,1);
+
+  /* ---- Legacy color aliases (existing pages) ---- */
+  --forest-900:var(--color-brand-900); --forest-800:var(--color-brand-800); --forest-700:var(--color-brand-700);
+  --sage-300:var(--color-brand-300); --sage-100:var(--color-brand-100);
+  --ivory:var(--color-neutral-100); --offwhite:var(--color-neutral-50); --charcoal:var(--color-charcoal);
+  --gray-200:var(--color-neutral-200); --gray-500:var(--color-neutral-500);
+  --lime:#c5f26b; --mint:#7fe0b0;
+  --danger:var(--color-red-600); --danger-ink:var(--color-red-700); --warn:var(--color-amber-500);
+  --placeholder:#6f7d74;
+}

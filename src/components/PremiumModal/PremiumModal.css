@@ -1,0 +1,7 @@
+/* Body of the Premium feature gate. Overlay, dialog and close button come from components/ui/Modal. */
+.pm{display:flex;flex-direction:column;gap:10px}
+.pm p{margin:0}
+.pm__accent{color:#16a34a}
+.pm__row{display:flex;gap:8px;justify-content:flex-end}
+.pm__btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:10px 16px;border-radius:10px;border:0;background:#16a34a;color:#fff;font:inherit;cursor:pointer}
+.pm__btn--ghost{background:transparent;color:inherit;border:1px solid rgba(128,128,128,.4)}

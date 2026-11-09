@@ -1,0 +1,39 @@
+/* Lapisan redesain global (dimuat terakhir): satu bahasa visual untuk seluruh website.
+   Prinsip: radius konsisten, tombol selalu berbentuk tombol (tidak ada teks/underline kecil), jarak simetris, gerak halus di mana-mana. */
+:root{--radius-sm:12px;--radius:16px;--radius-lg:22px;--radius-xl:28px;--shadow-sm:0 1px 2px rgba(11,42,31,.05),0 6px 20px -8px rgba(11,42,31,.1);--shadow-md:0 18px 40px -16px rgba(11,42,31,.22);--t:.28s var(--ease)}
+a{text-decoration:none}
+body{background:var(--color-bg)}
+@keyframes rd-rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+/* semua halaman: isi muncul berurutan */
+.shell__content>*>*{animation:rd-rise .55s var(--ease) both}
+.shell__content>*>*:nth-child(2){animation-delay:.06s}.shell__content>*>*:nth-child(3){animation-delay:.12s}.shell__content>*>*:nth-child(4){animation-delay:.18s}.shell__content>*>*:nth-child(5){animation-delay:.24s}.shell__content>*>*:nth-child(n+6){animation-delay:.3s}
+/* tombol: bentuk, tinggi, dan gerak seragam */
+:where(.lp__btn,.lp__ghost,.dash__btn,.dash__ctaBtn,.pm__btn,.wa--solid,.wa--ghost,.sk-btn,.dash__actions button){min-height:46px;border-radius:var(--radius-pill)!important;padding-inline:22px;font-weight:700;letter-spacing:var(--letter-spacing-button);transition:transform var(--t),box-shadow var(--t),background .2s,border-color .2s,color .2s}
+:where(.lp__btn,.pm__btn:not(.pm__btn--ghost),.wa--solid,.sk-btn:not(.sk-ghost)):hover{transform:translateY(-2px);box-shadow:0 14px 26px -12px rgba(15,107,71,.6)}
+:where(.lp__ghost,.pm__btn--ghost,.wa--ghost,.sk-ghost,.dash__btn--ghost){border:1.5px solid var(--color-border-strong);background:#fff}
+:where(.lp__ghost,.pm__btn--ghost,.wa--ghost,.sk-ghost,.dash__btn--ghost):hover{border-color:var(--color-brand-800);background:var(--color-brand-100);transform:translateY(-2px)}
+/* "link teks" lama jadi chip bertombol */
+.sk-link{display:inline-flex;align-items:center;gap:6px;min-height:36px;padding:0 14px;border-radius:var(--radius-pill);background:var(--color-brand-100);color:var(--color-brand-800);font-weight:700}
+.sk-link:hover{background:var(--color-brand-800);color:#fff}
+/* kartu & panel: radius, bayangan, dan hover seragam */
+:where(.dash__card,.dash__head,.pm__plan,.pm__ben,.pm__status,.sk-card,.mkc,.lp__prod>a){border-radius:var(--radius-lg)!important;box-shadow:var(--shadow-sm);transition:transform var(--t),box-shadow var(--t),border-color .2s}
+:where(.dash__card,.pm__plan,.sk-card,.mkc,.lp__prod>a):hover{transform:translateY(-3px);box-shadow:var(--shadow-md)}
+.dash__row,.sb__link,.mnav__tab,.msheet__item{transition:background .2s,color .2s,transform .2s var(--ease)}
+.dash__row:hover{transform:translateX(3px)}
+/* form & tabel */
+input:not([type=checkbox]):not([type=range]):not([type=radio]),select{min-height:46px;border-radius:var(--radius-sm)}
+tbody tr{transition:background .15s}tbody tr:hover{background:var(--color-brand-100)}
+/* landing: fitur sebagai daftar baris lebar (bukan grid kartu) */
+.lp__rows{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px}
+.lp__row{position:relative;overflow:hidden;display:grid;grid-template-columns:44px 56px minmax(0,1fr) 48px;align-items:center;gap:22px;padding:22px 26px;border-radius:var(--radius-lg);background:#fff;border:1px solid var(--color-border);color:inherit;transition:transform var(--t),box-shadow var(--t),border-color .2s}
+.lp__row::before{content:'';position:absolute;inset:0;background:var(--color-brand-900);transform:scaleX(0);transform-origin:left;transition:transform .45s var(--ease)}
+.lp__row>*{position:relative}
+.lp__row:hover{transform:translateY(-2px);box-shadow:var(--shadow-md);border-color:var(--color-brand-900)}.lp__row:hover::before{transform:scaleX(1)}
+.lp__rowNo{font-family:var(--font-family-mono);font-size:.8rem;color:var(--color-neutral-500);transition:color .3s}
+.lp__row .lp__fico{width:56px;height:56px;border-radius:16px;margin:0;background:var(--color-brand-100);color:var(--color-brand-800);transition:background .3s,color .3s}
+.lp__rowText h3{font-size:1.25rem;color:var(--color-brand-900);transition:color .3s}.lp__rowText p{margin:4px 0 0;color:var(--color-neutral-500);font-size:.95rem;transition:color .3s}
+.lp__rowGo{display:grid;place-items:center;width:48px;height:48px;border-radius:50%;border:1.5px solid var(--color-border-strong);color:var(--color-brand-900);transition:background .3s,color .3s,border-color .3s,transform .35s var(--ease)}
+.lp__row:hover .lp__rowNo,.lp__row:hover .lp__rowText p{color:#9fb8a8}.lp__row:hover .lp__rowText h3{color:#fff}
+.lp__row:hover .lp__fico{background:var(--color-accent);color:var(--color-brand-900)}
+.lp__row:hover .lp__rowGo{background:var(--color-accent);border-color:var(--color-accent);transform:rotate(-45deg)}
+@media (max-width:700px){.lp__row{grid-template-columns:48px minmax(0,1fr) 44px;gap:14px;padding:18px}.lp__rowNo{display:none}.lp__row .lp__fico{width:48px;height:48px}.lp__rowGo{width:44px;height:44px}}

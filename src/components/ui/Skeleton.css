@@ -1,0 +1,34 @@
+/* Skeleton placeholders. Shimmer runs only while `.is-live` is set; idle placeholders stay still. */
+.sk{display:block;position:relative;overflow:hidden;border-radius:var(--radius-sm);background:var(--color-neutral-200)}
+.sk--circle{border-radius:50%}
+.sk--pill{border-radius:var(--radius-pill)}
+.sk.is-live::after{content:'';position:absolute;inset:0;transform:translateX(-100%);background:linear-gradient(90deg,transparent,rgba(255,255,255,.65),transparent);animation:skShimmer 1.25s ease-in-out infinite}
+.sk:not(.is-live){opacity:.55}
+@keyframes skShimmer{to{transform:translateX(100%)}}
+@media (prefers-reduced-motion:reduce){.sk.is-live::after{animation:none}.sk.is-live{animation:skPulse 1.6s ease-in-out infinite}}
+@keyframes skPulse{50%{opacity:.45}}
+
+.sk-card{display:flex;flex-direction:column;gap:12px;padding:18px;border-radius:var(--radius);border:1px solid var(--color-border);background:var(--color-surface);box-shadow:var(--shadow-sm);min-width:0}
+.sk-card__row{display:flex;align-items:center;gap:12px}
+.sk-card__col{display:flex;flex-direction:column;gap:8px;flex:1;min-width:0}
+.sk-card__grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.sk-hint{margin:0;font-size:var(--font-size-sm);color:var(--color-text-muted);line-height:var(--line-height-body)}
+
+.sk-table{display:flex;flex-direction:column;border:1px solid var(--color-border);border-radius:var(--radius);overflow:hidden;background:var(--color-surface)}
+.sk-table__row{display:grid;gap:16px;padding:14px 12px;align-items:center;border-top:1px solid var(--color-border)}
+.sk-table__row:first-child{border-top:0;background:var(--color-surface-alt)}
+
+.sk-page{display:flex;flex-direction:column;gap:20px;padding:28px;max-width:1200px}
+.sk-page__kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
+.sk-page__grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px}
+@media (max-width:768px){.sk-page{padding:18px}}
+
+/* Content that replaces a skeleton fades in instead of popping. */
+.sk-reveal{animation:skReveal .35s var(--ease) both}
+@keyframes skReveal{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.sk-reveal{animation:none}}
+
+.skx{display:grid;gap:18px}.skx--4{grid-template-columns:repeat(4,minmax(0,1fr))}.skx--2{grid-template-columns:repeat(2,minmax(0,1fr))}.skx--32{grid-template-columns:3fr 2fr}
+.skx-hero{display:flex;align-items:center;gap:18px}.skx-bar{display:flex;gap:10px;flex-wrap:wrap}
+@media (max-width:1024px){.skx--4{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:768px){.skx--2,.skx--32{grid-template-columns:minmax(0,1fr)}}

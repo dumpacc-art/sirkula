@@ -1,0 +1,17 @@
+/* Adegan kurir kartun. Gerak hanya aktif sesuai fase; tanpa gerak bila pengguna memilih reduced motion. */
+.cs{border-radius:22px;overflow:hidden;border:1px solid var(--color-border);background:#fff;box-shadow:var(--shadow-sm)}
+.cs svg{display:block;width:100%;height:auto;aspect-ratio:12/5}
+.cs__cap{display:flex;flex-direction:column;gap:2px;padding:12px 16px;background:var(--color-brand-900);color:#fff}.cs__cap b{font-family:var(--font-family-display);font-size:1.05rem;color:var(--color-accent)}.cs__cap span{font-size:.85rem;color:#b9d3c3}
+.cs svg *{transform-box:fill-box}
+.cs__truck{animation:cs-bob .5s ease-in-out infinite}.cs__wheel{transform-origin:center;animation:cs-spin .6s linear infinite}
+.cs__trees{animation:cs-scroll 3.2s linear infinite}.cs__dash{animation:cs-dash .5s linear infinite}.cs__cloud{animation:cs-cloud 16s linear infinite}.cs__cloud--2{animation-duration:24s;animation-delay:-8s}
+.cs__speed,.cs__bubble,.cs__confetti{opacity:0}.cs__eyes{transform-origin:center;animation:cs-blink 3.4s infinite}
+.cs--drive .cs__speed{opacity:1;animation:cs-speed .35s linear infinite}
+.cs--found .cs__truck{animation:cs-in .9s var(--ease) both,cs-bob .6s .9s ease-in-out infinite}.cs--found .cs__trees,.cs--found .cs__dash,.cs--found .cs__wheel{animation-play-state:paused}.cs--found .cs__bubble{opacity:1;animation:cs-pop .5s .9s var(--ease) both}
+.cs--arrive .cs__trees,.cs--arrive .cs__dash,.cs--arrive .cs__wheel{animation:none}.cs--arrive .cs__truck{animation:cs-hop .9s ease-in-out infinite}.cs--arrive .cs__bubble{opacity:1;animation:cs-pop .5s var(--ease) both}
+.cs--done .cs__trees,.cs--done .cs__dash,.cs--done .cs__wheel{animation:none}.cs--done .cs__truck{animation:cs-hop .7s ease-in-out infinite}.cs--done .cs__bubble{opacity:1;animation:cs-pop .5s var(--ease) both}.cs--done .cs__confetti{opacity:1}.cs__confetti rect{animation:cs-fall 1.6s linear infinite}
+@keyframes cs-bob{50%{transform:translateY(-2.5px)}}@keyframes cs-spin{to{transform:rotate(360deg)}}@keyframes cs-scroll{to{transform:translateX(-360px)}}@keyframes cs-dash{to{stroke-dashoffset:-40}}
+@keyframes cs-cloud{from{transform:translateX(-80px)}to{transform:translateX(400px)}}@keyframes cs-speed{0%{transform:translateX(10px);opacity:0}50%{opacity:1}100%{transform:translateX(-14px);opacity:0}}
+@keyframes cs-in{from{transform:translateX(-260px)}to{transform:none}}@keyframes cs-hop{0%,100%{transform:translateY(0) scaleY(1)}35%{transform:translateY(-9px) scaleY(1.03)}60%{transform:translateY(0) scaleY(.96)}}
+@keyframes cs-pop{from{transform:scale(0)}70%{transform:scale(1.15)}to{transform:scale(1)}}@keyframes cs-blink{0%,94%,100%{transform:scaleY(1)}97%{transform:scaleY(.1)}}@keyframes cs-fall{from{transform:translateY(-10px) rotate(0)}to{transform:translateY(130px) rotate(260deg)}}
+@media (prefers-reduced-motion:reduce){.cs svg *{animation:none!important}}

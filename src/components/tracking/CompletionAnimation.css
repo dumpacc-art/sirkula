@@ -1,0 +1,22 @@
+.cma{position:fixed;inset:0;z-index:var(--z-overlay);display:grid;place-items:center;padding:16px;background:rgba(12,42,30,.6);backdrop-filter:blur(3px)}
+.cma__card{width:100%;max-width:480px;padding:28px 24px 26px;border-radius:var(--radius-lg);background:var(--color-surface);box-shadow:var(--shadow-lg);display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center}
+.cma__stage{position:relative;width:100%;height:96px}
+.cma__track{position:absolute;left:24px;right:24px;bottom:18px;height:64px}
+.cma__rail{position:absolute;left:0;right:0;bottom:0;height:4px;border-radius:2px;background:var(--color-border-strong);background-image:repeating-linear-gradient(90deg,var(--color-border-strong) 0 10px,transparent 10px 18px);background-color:transparent}
+.cma__trail{position:absolute;left:0;right:0;bottom:0;height:4px;border-radius:2px;background:var(--color-fresh-700);transform-origin:left center}
+.cma__truck{position:absolute;bottom:0;transform:translateX(-50%);line-height:0}
+.cma__svg{width:120px;height:64px;display:block}
+.cma__box{fill:var(--color-brand-800)}
+.cma__stripe{fill:var(--color-fresh-500)}
+.cma__cab{fill:var(--color-fresh-700)}
+.cma__glass{fill:var(--color-fresh-100)}
+.cma__wheel{fill:var(--color-charcoal);stroke:var(--color-white);stroke-width:3}
+.cma__fac{position:absolute;right:0;bottom:4px;width:48px;height:48px;border-radius:50%;display:grid;place-items:center;background:var(--color-brand-100);color:var(--color-brand-800);border:2px solid var(--color-border);transition:background .3s,color .3s,transform .3s}
+.cma__fac.is-hit{background:var(--color-fresh-700);color:var(--color-white);border-color:var(--color-fresh-700);transform:scale(1.08)}
+.cma__labels{width:100%;display:flex;justify-content:space-between;font-size:var(--font-size-xs);color:var(--color-text-muted);margin-top:-6px;padding:0 0 0}
+.cma__result{display:flex;flex-direction:column;align-items:center;gap:8px;margin-top:6px}
+.cma__badge{width:96px;height:96px;border-radius:50%;display:grid;place-items:center;background:var(--color-success-bg);color:var(--color-success);box-shadow:0 0 0 8px var(--color-fresh-100)}
+.cma h2{font-size:var(--font-size-xl);color:var(--color-heading);max-width:22ch}
+.cma__sub{margin:0;font-size:var(--font-size-sm);color:var(--color-text-secondary);font-variant-numeric:tabular-nums}
+.cma__actions{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:10px}
+@media (prefers-reduced-motion: reduce){.cma *,.cma{transition:none!important;animation:none!important}}

@@ -1,0 +1,14 @@
+{
+  "name": "SIRKULA",
+  "short_name": "SIRKULA",
+  "description": "Turn Waste into Lasting Value",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f6faf6",
+  "theme_color": "#123b2a",
+  "icons": [
+    { "src": "brand/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "brand/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}

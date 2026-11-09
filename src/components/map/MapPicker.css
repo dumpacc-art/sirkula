@@ -1,0 +1,5 @@
+.mpk{position:relative;height:320px;border-radius:var(--radius);overflow:hidden;border:1px solid var(--color-border);background:var(--color-bg-alt)}
+.mpk__map,.mpk__g{height:100%;width:100%}
+.mpk__err{height:100%;display:grid;place-items:center;padding:16px;text-align:center;color:var(--color-error-ink);font-size:var(--font-size-sm)}
+.mpk__pin{background:none;border:0}
+.mpk__pin span{display:block;width:26px;height:26px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);background:var(--color-primary);border:3px solid var(--color-white);box-shadow:var(--shadow-sm)}

@@ -1,0 +1,36 @@
+import { id } from './id'
+
+export type Lang = 'English' | 'Bahasa Indonesia'
+
+const esc = (s: string) => s.replace(/[.*+?^$()|[\]\\]/g, '\\$&')
+// Template entries such as "Batch {id} registered" become regexes so stored dynamic text also translates.
+const has = (k: string) => Object.prototype.hasOwnProperty.call(id, k)
+const patterns = Object.entries(id).filter(([k]) => k.includes('{')).sort((a, b) => b[0].length - a[0].length).map(([k, v]) => {
+  const names: string[] = []
+  const src = esc(k).replace(/\{(\w+)\}/g, (_, n) => { names.push(n); return '(.+?)' })
+  return { re: new RegExp(`^${src}$`), names, v }
+})
+
+// Hasil terjemahan tanpa variabel di-cache: teks yang tidak ada di kamus tidak perlu dicocokkan ke ratusan regex di setiap render.
+const cache = new Map<string, string>()
+
+/** Translate an English source string. Falls back to the original text when no translation exists. */
+export function translate(lang: string, text: string, vars?: Record<string, string | number>): string {
+  let out = text
+  if (lang === 'Bahasa Indonesia') {
+    const hit = cache.get(text)
+    if (hit !== undefined) out = hit
+    else if (has(text)) out = id[text]
+    else {
+      for (const p of patterns) {
+      const m = text.match(p.re)
+      if (m) { out = p.v.replace(/\{(\w+)\}/g, (_, n) => { const i = p.names.indexOf(n); return i >= 0 ? translate(lang, m[i + 1]) : '' }); break }
+      }
+      if (cache.size > 5000) cache.clear()
+      cache.set(text, out)
+    }
+  }
+  if (vars) for (const k in vars) out = out.split(`{${k}}`).join(String(vars[k]))
+  return out
+}
+
