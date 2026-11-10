@@ -21,10 +21,18 @@ const SRC_OPTS: SrcFilter[] = ['', 'farm', 'upcycle', 'partner']
  */
 export default function MarketplacePage() {
   const { products, orders, cart, addToCart } = useStore(); const { t } = useT(); const { hash } = useLocation()
+  const [active, setActive] = useState<'shop' | 'orders' | 'sell'>('shop')
   const [q, setQ] = useState(''), [cat, setCat] = useState(''), [src, setSrc] = useState<SrcFilter>(''), [inStock, setInStock] = useState(false), [sort, setSort] = useState('new'), [open, setOpen] = useState(false)
   const shop = useRef<HTMLDivElement>(null), ord = useRef<HTMLElement>(null), sell = useRef<HTMLElement>(null)
   const go = (r: React.RefObject<HTMLElement | HTMLDivElement | null>) => r.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })
   useEffect(() => { if (hash === '#orders') setTimeout(() => go(ord), 80); else if (hash === '#sell') setTimeout(() => go(sell), 80) }, [hash])
+
+  // Sorot tombol bar yang sesuai dengan bagian yang sedang terlihat.
+  useEffect(() => {
+    const els: [typeof active, Element | null][] = [['shop', shop.current], ['orders', ord.current], ['sell', sell.current]]
+    const io = new IntersectionObserver(es => { es.forEach(e => { if (e.isIntersecting) { const k = els.find(x => x[1] === e.target)?.[0]; if (k) setActive(k) } }) }, { rootMargin: '-35% 0px -55% 0px' })
+    els.forEach(([, el]) => el && io.observe(el)); return () => io.disconnect()
+  }, [])
 
   const catCount = useMemo(() => { const m: Record<string, number> = {}; products.forEach(p => { m[p.category] = (m[p.category] ?? 0) + 1 }); return m }, [products])
   const rows = useMemo(() => products
@@ -43,9 +51,9 @@ export default function MarketplacePage() {
       </header>
 
       <nav className="mk__jump" aria-label={t('Marketplace')}>
-        <button type="button" onClick={() => go(shop)}><ShoppingBag size={16} aria-hidden="true" />{t('Shop')}</button>
-        <button type="button" onClick={() => go(ord)}><ClipboardList size={16} aria-hidden="true" />{t('Orders')}<i>{orders.length}</i></button>
-        <button type="button" onClick={() => go(sell)}><Store size={16} aria-hidden="true" />{t('Sell on SIRKULA')}</button>
+        <button type="button" className={active === 'shop' ? 'on' : ''} onClick={() => go(shop)}><ShoppingBag size={16} aria-hidden="true" />{t('Shop')}</button>
+        <button type="button" className={active === 'orders' ? 'on' : ''} onClick={() => go(ord)}><ClipboardList size={16} aria-hidden="true" />{t('Orders')}<i>{orders.length}</i></button>
+        <button type="button" className={active === 'sell' ? 'on' : ''} onClick={() => go(sell)}><Store size={16} aria-hidden="true" />{t('Sell on SIRKULA')}</button>
       </nav>
 
       <section className="mk__farm" aria-label={t(FARM_NOTE_TITLE)}>

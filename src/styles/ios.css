@@ -1,5 +1,5 @@
 /* Lapisan gaya "iOS": tenang, berkaca (glass), lembut, gerak seperti pegas. Dimuat paling akhir. */
-:root{--ios-spring:cubic-bezier(.34,1.56,.64,1);--glass:rgba(255,255,255,.72);--glass-line:rgba(255,255,255,.75)}
+:root{--tb-stick:84px;--ios-spring:cubic-bezier(.34,1.56,.64,1);--glass:rgba(255,255,255,.72);--glass-line:rgba(255,255,255,.75)}
 *{-webkit-tap-highlight-color:transparent}
 body{background:#eef4ee}
 /* latar aurora yang bergeser sangat pelan */
@@ -35,4 +35,9 @@ body::before{content:'';position:fixed;inset:-10%;z-index:-1;pointer-events:none
 
 /* bar atas: pil kaca melayang, sejajar dengan sidebar yang melayang (tidak lagi kotak penuh yang terpotong) */
 .tb{position:sticky;top:12px;margin:12px 16px 0;padding:10px 14px 10px 22px!important;border-radius:26px;border:1px solid var(--glass-line)!important;box-shadow:0 14px 34px -20px rgba(11,42,31,.4)}
-@media (max-width:768px){.tb{top:calc(8px + env(safe-area-inset-top,0px));margin:calc(8px + env(safe-area-inset-top,0px)) 10px 0;padding:8px 10px 8px 16px!important;border-radius:22px}}
+@media (max-width:768px){:root{--tb-stick:calc(76px + env(safe-area-inset-top,0px))}.tb{top:calc(8px + env(safe-area-inset-top,0px));margin:calc(8px + env(safe-area-inset-top,0px)) 10px 0;padding:8px 10px 8px 16px!important;border-radius:22px}}
+
+/* Peta (Leaflet / Google): pane dan kontrolnya punya z-index sampai 1000. Tanpa konteks tumpukan sendiri, peta menimpa bar atas, bar melayang, dan dialog saat di-scroll. */
+.leaflet-container,.mpk,.mpk__map,.mpk__g,.pk__map,.trk__map,.em__mapWrap,.em__gmap,.em__map{isolation:isolate;z-index:0}
+.leaflet-pane,.leaflet-top,.leaflet-bottom,.leaflet-control{z-index:auto}
+.leaflet-pane{z-index:1}.leaflet-top,.leaflet-bottom{z-index:2}

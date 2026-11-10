@@ -16,7 +16,7 @@ export default function Sidebar({ collapsed, onToggle }: { collapsed: boolean; o
       <div className="sb__head">
         {/* Tidak disentuh: logo. Di-hover/fokus: berganti jadi ikon sidebar (buka saat collapse, tutup saat expand). */}
         <button type="button" className="sb__brand" onClick={onToggle} aria-label={label} title={label}>
-          <Logo variant="mark" tone="light" height={30} className="sb__mark" title="" />
+          <img src={`${import.meta.env.BASE_URL}brand/logo-mark.svg`} className="sb__mark" alt="" width={30} height={30} draggable={false} />
           <Swap className="sb__swap" size={20} aria-hidden="true" />
         </button>
         {!collapsed && <Logo variant="wordmark" tone="light" height={15} className="sb__logo" />}

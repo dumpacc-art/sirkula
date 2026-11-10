@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { ArrowLeft, ArrowRight, LocateFixed, ScrollText, ShieldCheck } from 'lucide-react'
 import { useStore } from '../../store/StoreContext'
-import PartnerFoundOverlay from '../pickup/PartnerFoundOverlay'
+import SuccessCard from '../ui/SuccessCard'
 import { useT } from '../../i18n'
 import Select from '../ui/Select'
 import RangeInput from '../ui/RangeInput'
@@ -20,7 +20,10 @@ const CATS = WASTE_CATEGORIES.filter(c => c.id !== 'ewaste')
  * 1 Company profile → 2 Accepted waste, capacity and location → 3 Read and sign the agreement (15% of organic waste to the SIRKULA office).
  * With an existing partner it only edits steps 1 and 2; the signed agreement stays as it was.
  */
-export default function PickupPartnerWizard({ existing, onClose, onDone }: { existing?: PickupPartner; onClose: () => void; onDone: (id: string) => void }) {
+export default function PickupPartnerWizard({ existing: existingProp, onClose, onDone }: { existing?: PickupPartner; onClose: () => void; onDone: (id: string) => void }) {
+  // Dikunci saat wizard dibuka. Setelah "Sign and register" store langsung punya profil mitra, sehingga prop `existing` dari induk berubah dari kosong menjadi terisi
+  // di tengah alur: jumlah langkah turun dari 3 ke 2, steps[2] jadi undefined, t(undefined) melempar error, dan seluruh halaman macet/putih. Itu penyebab "freeze" sebelumnya.
+  const [existing] = useState(existingProp)
   const { user, savePickupPartner, notify } = useStore(); const { t, lang } = useT(); const L: Lang = lang === 'Bahasa Indonesia' ? 'id' : 'en'
   const [step, setStep] = useState(0), [errs, setErrs] = useState<Errs>({})
   const [type, setType] = useState<PartnerBusinessType>(existing?.businessType ?? 'collector')
@@ -157,7 +160,8 @@ export default function PickupPartnerWizard({ existing, onClose, onDone }: { exi
         {step > 0 ? <button type="button" className="pw__ghost" onClick={() => { setErrs({}); setStep(step - 1) }}><ArrowLeft size={15} aria-hidden="true" />{t('Back')}</button> : <span />}
         <button type="button" className="pw__btn" onClick={next}>{last ? (existing ? t('Save changes') : t('Sign and register')) : t('Continue')}{!last && <ArrowRight size={15} aria-hidden="true" />}</button>
       </footer>
-      <PartnerFoundOverlay found={welcome && { name: welcome.name, km: 0 }} scene="partner_ready" title="Welcome, partner!" onClose={() => { const w = welcome; setWelcome(null); if (w) onDone(w.id) }} />
+      {welcome && <SuccessCard title="Welcome, partner!" message="You are registered as a pickup partner. Users near you can now book you from Pickup › Choose partner." actionLabel="Continue"
+        facts={[['Company', welcome.name], ['Partner ID', welcome.id], ['Organic waste share', `${ORGANIC_SHARE_PCT}%`]]} onDone={() => { const w = welcome; setWelcome(null); onDone(w.id) }} />}
     </section>
   )
 }

@@ -92,15 +92,13 @@ export default function PartnersPage() {
         <section className="pt__sec">
           <PickupPartnerSection />
           <p className="pt__lead">{t('Other ways to work with SIRKULA. We prefill the terms; you can still change them while the agreement is being reviewed.')}</p>
-          <div className="pt__grid">
+          <div className="pt__grid pt__grid--prog">
             {cooperationPrograms.map(p => (
               <article key={p.id} className="pt__prog">
-                <span className="pt__progIcon"><p.Icon size={22} aria-hidden="true" /></span>
-                <h3>{t(p.title)}</h3>
-                <p>{t(p.desc)}</p>
-                <small><b>{t('For')}:</b> {t(p.who)}</small>
-                <ul>{p.terms.map(x => <li key={x}>{t(x)}</li>)}</ul>
-                <footer><span>{t('Your share')} <b>{p.share}%</b></span>
+                <span className="pt__progIcon"><p.Icon size={24} aria-hidden="true" /></span>
+                <div className="pt__progHead"><h3>{t(p.title)}</h3><small><b>{t('For')}:</b> {t(p.who)}</small></div>
+                <div className="pt__progBody"><p>{t(p.desc)}</p><ul className="pt__chips">{p.terms.map(x => <li key={x}>{t(x)}</li>)}</ul></div>
+                <footer><span className="pt__share">{t('Your share')} <b>{p.share}%</b></span>
                   <button type="button" className="pt__btn" onClick={() => proposeProgram(p)}>{t('Apply')}<ArrowRight size={15} aria-hidden="true" /></button></footer>
               </article>
             ))}

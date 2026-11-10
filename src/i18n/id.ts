@@ -3,6 +3,7 @@ import { idDashboard } from './id.dashboard'
 import { idAgreementsCommunities } from './id.agreements-communities'
 import { idMarketplace } from './id.marketplace'
 import { idPartners } from './id.partners'
+import { idAnalyticsAdmin } from './id.analytics-admin'
 // Indonesian (formal, professional) translations. Keys are the English source strings.
 // Keys containing {name} are templates and also match stored dynamic text.
 export const id: Record<string, string> = {
@@ -1092,3 +1093,5 @@ Object.assign(id, idAgreementsCommunities)
 Object.assign(id, idMarketplace)
 Object.assign(id, idPartners)
 Object.assign(id, idDashboard)
+// Tidak menimpa terjemahan yang sudah ada.
+for (const [k, v] of Object.entries(idAnalyticsAdmin)) if (!(k in id)) id[k] = v

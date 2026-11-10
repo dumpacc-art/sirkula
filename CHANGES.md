@@ -1,3 +1,11 @@
+## Revisi 5-8
+
+- **#5 Welcome mitra freeze**: `PartnerFoundOverlay` memakai handler lewat ref (efek tidak lagi jalan ulang tiap render), blur besar diganti gradien, ada `onExitComplete`; wizard baru menutup setelah animasi keluar selesai (sebelumnya di-unmount di tengah animasi). Hormati reduced-motion.
+- **#6 Marketplace header kaca**: bar Shop/Orders/Sell menempel di bawah bar atas melayang (`--tb-stick`), kaca sendiri, animasi masuk global dimatikan di bar itu, kartu produk tidak lagi punya backdrop-filter masing-masing, tombol aktif ikut scroll.
+- **#7 Analitik**: 12 KPI (6/4/2 kolom) dan 18 grafik (6 + 12; 3/2/1 kolom) lewat container query, jadi grid selalu penuh. Tambahan: Menunggu tinjauan bukti, Pengecualian terbuka, dan 5 grafik baru.
+- **#8 Admin**: didesain ulang jadi konsol bertab (Ringkasan, Verifikasi, Pengecualian, Direktori, Log audit) dengan 8 KPI, filter, pencarian organisasi.
+- Belum dijalankan dengan `npm run build` (tidak ada npm di sini).
+
 ## Revisi terbaru
 
 - Hapus `public/videos/hero.mp4` (tidak dipakai halaman mana pun).

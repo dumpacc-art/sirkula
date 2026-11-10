@@ -4,10 +4,10 @@
 .sb__logo{flex:none;font-family:var(--font-family-display);font-weight:var(--font-weight-bold);letter-spacing:.2em;font-size:1rem;color:#fff}
 .sb__brand{position:relative;flex:none;display:grid;place-items:center;width:40px;height:40px;padding:0;border:0;border-radius:var(--radius-sm);background:none;color:#8fa89a}
 .sb__brand>*{grid-area:1/1;transition:opacity .18s,transform .18s}
-.sb__mark{display:block;width:30px;height:30px}
+.sb__mark{display:block;width:30px;height:30px;object-fit:contain}
 .sb__swap{opacity:0;transform:scale(.8)}
 .sb__brand:hover,.sb__brand:focus-visible{background:rgba(255,255,255,.08);color:var(--color-accent)}
-.sb__brand:hover .sb__mark,.sb__brand:focus-visible .sb__mark{display:block;width:30px;height:30px}
+.sb__brand:hover .sb__mark,.sb__brand:focus-visible .sb__mark{opacity:0;transform:scale(.8)}
 .sb__brand:hover .sb__swap,.sb__brand:focus-visible .sb__swap{opacity:1;transform:none}
 .sb__nav{display:flex;flex-direction:column;gap:2px;padding:0 12px 12px;overflow-y:auto;overflow-x:hidden;flex:1;min-height:0}
 .sb__group{padding:16px 12px 6px;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:#6f8a7b;font-weight:var(--font-weight-bold);white-space:nowrap}

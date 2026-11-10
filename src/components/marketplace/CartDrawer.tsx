@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import { createPortal } from 'react-dom'
 import { AnimatePresence, motion } from 'framer-motion'
 import { X, Minus, Plus, Trash2 } from 'lucide-react'
 import { useStore } from '../../store/StoreContext'
@@ -11,7 +12,7 @@ export default function CartDrawer({ open, onClose, onOrdered }: { open: boolean
   useEffect(() => { if (!open) return; const f = (e: KeyboardEvent) => e.key === 'Escape' && onClose(); window.addEventListener('keydown', f); return () => window.removeEventListener('keydown', f) }, [open, onClose])
   const lines = cart.map(c => ({ ...c, p: products.find(p => p.id === c.productId)! })).filter(l => l.p)
   const sub = lines.reduce((a, l) => a + l.qty * l.p.price, 0)
-  return (
+  return createPortal(
     <AnimatePresence>{open && (
       <motion.div className="mkd__bg" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={onClose}>
         <motion.aside className="mkd" role="dialog" aria-modal="true" aria-label={t('Cart')} initial={{ x: 40, opacity: 0 }} animate={{ x: 0, opacity: 1 }} exit={{ x: 40, opacity: 0 }} transition={{ duration: .22 }} onClick={e => e.stopPropagation()}>
@@ -35,6 +36,5 @@ export default function CartDrawer({ open, onClose, onOrdered }: { open: boolean
             <button type="button" className="mk-btn" disabled={!lines.length} onClick={() => { placeOrder(); onClose(); onOrdered() }}>{t('Place prototype order')}</button>
           </footer>
         </motion.aside>
-      </motion.div>)}</AnimatePresence>
-  )
+      </motion.div>)}</AnimatePresence>, document.body)
 }

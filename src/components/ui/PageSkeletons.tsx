@@ -115,9 +115,8 @@ function Analytics() {
   return <>
     <Head lines={2} w={320} />
     <div className="skp__bar"><S w={150} h={44} style={{ borderRadius: 10 }} /><S w={170} h={44} style={{ borderRadius: 10 }} /><S w={170} h={44} style={{ borderRadius: 10 }} /><S w={80} h={44} style={{ borderRadius: 10 }} /><S w={120} h={44} style={{ borderRadius: 10 }} /></div>
-    <div className="skp__grid skp__grid--kpi">{Array.from({ length: 9 }, (_, i) => <Kpi key={i} />)}</div>
-    <div className="skp__grid skp__grid--2 skp__grid--wide">{Array.from({ length: 6 }, (_, i) => <Box key={i}><S w="46%" h={16} style={{ marginBottom: 12 }} />{R(240, 10)}</Box>)}</div>
-    <div className="skp__grid skp__grid--2 skp__grid--wide">{Array.from({ length: 4 }, (_, i) => <Box key={i}><S w="40%" h={16} style={{ marginBottom: 12 }} />{R(220, 10)}</Box>)}</div>
+    <div className="skp__grid skp__grid--kpi12">{Array.from({ length: 12 }, (_, i) => <Kpi key={i} />)}</div>
+    <div className="skp__grid skp__grid--3 skp__grid--wide">{Array.from({ length: 6 }, (_, i) => <Box key={i}><S w="46%" h={16} style={{ marginBottom: 12 }} />{R(240, 10)}</Box>)}</div>
   </>
 }
 
@@ -142,11 +141,10 @@ function Settings() {
 
 function Admin() {
   return <>
-    <Head lines={1} w={240} />
-    <div className="skp__grid skp__grid--adk">{[0, 1, 2, 3].map(i => <Kpi key={i} />)}</div>
-    <div><S w={170} h={18} style={{ marginBottom: 10 }} />{[0, 1].map(i => <div key={i} className="skp__adrow"><S w="58%" h={13} /><div className="skp__acts"><S w={64} h={34} style={{ borderRadius: 8 }} /><S w={64} h={34} style={{ borderRadius: 8 }} /></div></div>)}</div>
-    <div><S w={200} h={18} style={{ marginBottom: 10 }} /><div className="skp__adrow"><S w="48%" h={13} /><S w={60} h={14} /></div></div>
-    <div className="skp__grid skp__grid--2 skp__grid--wide"><div className="skp__stack"><S w={80} h={18} />{[0, 1, 2].map(i => <S key={i} w={`${70 - i * 8}%`} h={13} />)}</div><div className="skp__stack"><S w={130} h={18} />{[0, 1, 2, 3, 4, 5].map(i => <S key={i} w={`${88 - (i % 3) * 10}%`} h={13} />)}</div></div>
+    <Box><div className="skp__between"><div className="skp__col"><S w={90} h={11} /><S w={240} h={30} /><S w={280} h={11} /></div><S w={90} h={44} /></div></Box>
+    <S h={48} pill />
+    <div className="skp__grid skp__grid--4">{Array.from({ length: 8 }, (_, i) => <Kpi key={i} />)}</div>
+    <div className="skp__grid skp__grid--2 skp__grid--wide">{[0, 1].map(i => <Box key={i}><S w="40%" h={16} style={{ marginBottom: 12 }} />{[0, 1, 2].map(j => <S key={j} h={52} style={{ borderRadius: 14, marginBottom: 8 }} />)}</Box>)}</div>
   </>
 }
 

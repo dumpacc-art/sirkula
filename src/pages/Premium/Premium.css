@@ -76,3 +76,21 @@
 .pm__btn--danger{background:#fff;color:#b42318;border-color:color-mix(in srgb,#b42318 35%,#fff)}.pm__btn--danger:hover{background:#fef3f2;border-color:#b42318}
 .pm__btn--dangerSolid{background:#b42318;border-color:#b42318;color:#fff}.pm__btn--dangerSolid:hover{background:#912018;border-color:#912018}
 @media (max-width:640px){.pm__statusAct{width:100%;margin-left:0}.pm__statusAct .pm__btn{flex:1 1 100%}}
+
+/* Paket tahunan dipromosikan, tetap memakai palet situs: kartu kaca terang, cincin hijau, teks gelap. (!important karena ios.css memaksa latar kaca pada .pm__plan) */
+.pm__plans{grid-template-columns:minmax(0,3fr) minmax(0,2fr)}
+.pm__plan--best{padding:32px;background:linear-gradient(160deg,rgba(255,255,255,.95) 45%,var(--color-brand-100))!important;box-shadow:0 0 0 2px var(--color-primary),var(--shadow-md);color:var(--color-text)}
+.pm__plan--best h3{color:var(--color-primary);font-size:var(--font-size-xl)}
+.pm__plan--best .pm__tag{top:-13px;right:22px}
+.pm__big{margin:0;display:flex;align-items:baseline;gap:6px}.pm__big b{font-family:var(--font-family-display);font-size:clamp(2.4rem,5.5vw,3.4rem);letter-spacing:-.03em;line-height:1;color:var(--color-heading)}.pm__big small{color:var(--color-text-muted);font-size:var(--font-size-base)}
+.pm__yearly{margin:0;color:var(--color-text-secondary);font-size:var(--font-size-sm)}
+.pm__save{display:flex;flex-direction:column;gap:2px;padding:14px 16px;border-radius:var(--radius);background:var(--color-success-bg);border:1px solid var(--color-brand-300)}
+.pm__save span{display:inline-flex;align-items:center;gap:6px;font-size:var(--font-size-xs);font-weight:700;letter-spacing:var(--letter-spacing-caps);text-transform:uppercase;color:var(--color-success-ink)}
+.pm__save b{font-family:var(--font-family-display);font-size:1.8rem;line-height:1.1;color:var(--color-success-ink)}.pm__save small{color:var(--color-text-secondary)}
+.pm__mini{list-style:none;margin:2px 0 0;padding:0;display:flex;flex-direction:column;gap:8px;font-size:var(--font-size-sm);color:var(--color-text)}.pm__mini li{display:flex;gap:10px;align-items:center}
+.pm__mini svg{flex:none;width:20px;height:20px;padding:3px;border-radius:50%;background:var(--color-success-bg);color:var(--color-success-ink)}
+.pm__btn--lg{min-height:52px;font-size:1.02rem;border-radius:var(--radius-pill)}
+.pm__nudge{margin:0;padding:10px 12px;border-radius:var(--radius-sm);background:var(--color-warning-bg);color:var(--color-warning-ink);font-size:var(--font-size-sm);font-weight:600}
+@media (max-width:768px){.pm__plans{grid-template-columns:minmax(0,1fr)}.pm__plan--best{padding:24px}}
+.pm__plan--best .pm__btn--lg{background:var(--color-primary)!important;border-color:var(--color-primary)!important;color:var(--color-on-primary,#fff)!important}
+.pm__plan--best .pm__btn--lg:hover{background:var(--color-primary-hover)!important;border-color:var(--color-primary-hover)!important}

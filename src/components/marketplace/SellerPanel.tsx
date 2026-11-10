@@ -6,6 +6,7 @@ import { rupiah } from '../../lib/pricing'
 import { MK_CATEGORIES, UNITS, formatThousands, parseThousands } from '../../config/marketplace'
 import Select from '../ui/Select'
 import Modal from '../ui/Modal'
+import SuccessCard from '../ui/SuccessCard'
 import PriceInput from './PriceInput'
 import { emojiOf } from './ProductCard'
 import type { Product, SellerProfile } from '../../types'
@@ -24,13 +25,14 @@ export default function SellerPanel() {
   const me = user ? sellers.find(s => s.ownerId === userIdOf(user.email)) : undefined
   const mine = me ? products.filter(p => p.mine && p.sellerId === me.ownerId) : []
   const [reg, setReg] = useState(false), [rf, setRf] = useState({ shopName: user?.org ?? '', kind: 'petani' as SellerProfile['kind'], region: 'Bali', about: '' })
-  const [edit, setEdit] = useState<Product | 'new' | null>(null)
+  const [edit, setEdit] = useState<Product | 'new' | null>(null), [welcome, setWelcome] = useState<string | null>(null)
+  const welcomeEl = welcome && <SuccessCard title="Welcome, selling partner!" message="Your shop is open. Add your first product, set the price and stock, and shoppers will see it in the marketplace." actionLabel="Add my first product" facts={[['Shop', welcome]]} onDone={() => { setWelcome(null); openForm('new') }} />
   const empty = { name: '', category: 'Vegetables', unit: 'kg', price: '', stock: '', desc: '' }
   const [f, setF] = useState(empty)
   const incoming = me ? orders.filter(o => o.lines.some(l => mine.some(p => p.id === l.productId))) : []
 
   const openForm = (p: Product | 'new') => { setEdit(p); setF(p === 'new' ? { ...empty, category: me?.kind === 'petani' ? 'Vegetables' : 'Home', unit: me?.kind === 'petani' ? 'kg' : 'pcs' } : { name: p.name, category: p.category, unit: p.unit ?? 'pcs', price: formatThousands(p.price), stock: String(p.stock), desc: p.desc }) }
-  const submitReg = () => { if (rf.shopName.trim().length < 3) return notify('Shop name needs at least 3 characters'); registerSeller({ shopName: rf.shopName.trim(), region: rf.region, about: rf.about.trim(), kind: rf.kind }); setReg(false) }
+  const submitReg = () => { if (rf.shopName.trim().length < 3) return notify('Shop name needs at least 3 characters'); registerSeller({ shopName: rf.shopName.trim(), region: rf.region, about: rf.about.trim(), kind: rf.kind }); setReg(false); setWelcome(rf.shopName.trim()) }
   const save = () => {
     const price = parseThousands(f.price), stock = parseThousands(f.stock)
     if (!f.name.trim() || price < 100 || f.stock === '') return notify('Name, price (at least Rp100) and stock are required')
@@ -39,7 +41,7 @@ export default function SellerPanel() {
     setEdit(null)
   }
 
-  if (!me) return (
+  if (!me) return (<>{welcomeEl}
     <div className="mks mks--cta">
       <div className="mks__ico"><Store size={28} aria-hidden="true" /></div>
       <div className="mks__txt">
@@ -58,11 +60,11 @@ export default function SellerPanel() {
           <button type="button" className="mk-btn" onClick={submitReg}>{t('Register')}</button>
         </div>
       </Modal>
-    </div>
+    </div></>
   )
 
   return (
-    <div className="mks">
+    <>{welcomeEl}<div className="mks">
       <div className="mks__head">
         <div><h3>{me.shopName}</h3><p className="mk__muted">{t(KINDS.find(k => k.key === me.kind)!.label)} · {me.region}</p></div>
         <button type="button" className="mk-btn" onClick={() => openForm('new')}><Plus size={16} aria-hidden="true" />{t('Sell a product')}</button>
@@ -93,6 +95,6 @@ export default function SellerPanel() {
           <button type="button" className="mk-btn" onClick={save}>{edit === 'new' ? t('Publish listing') : t('Save changes')}</button>
         </div>
       </Modal>
-    </div>
+    </div></>
   )
 }

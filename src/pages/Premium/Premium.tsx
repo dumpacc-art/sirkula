@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Check, Crown, CalendarClock, Sparkles, Building2, User, Trash2 } from 'lucide-react'
+import { Check, Crown, CalendarClock, Sparkles, Building2, User, Trash2, TrendingDown, ArrowRight } from 'lucide-react'
 import { PLANS, YEARLY_PER_MONTH, MARKETPLACE, activate, cancel, remove, hasRecord, canUseTrial, daysLeft, usePremium, useAccountType } from '../../lib/premium'
 import { rupiah } from '../../lib/pricing'
 import Modal from '../../components/ui/Modal'
@@ -7,7 +7,7 @@ import AdminWhatsApp from '../../components/ui/AdminWhatsApp'
 import './Premium.css'
 type P = 'trial' | 'monthly' | 'yearly'
 const MONTHLY = 149000, YEARLY = 1400000
-const SAVE_PCT = Math.round((1 - YEARLY / (MONTHLY * 12)) * 100)
+const SAVE_PCT = Math.round((1 - YEARLY / (MONTHLY * 12)) * 100), SAVINGS = MONTHLY * 12 - YEARLY
 const BEN = {
   personal: ['Biaya tetap pengangkutan Rp0 (normal Rp10.000/pesanan)', 'Statistik & laporan pengangkutan lebih lengkap', 'Riwayat & analisis aktivitas lebih terperinci'],
   company: ['Laporan gabungan dari beberapa cabang', 'Permintaan kerja sama/kontrak langsung ke admin SIRKULA', `Biaya publikasi marketplace ${rupiah(MARKETPLACE.free.listing)} → ${rupiah(MARKETPLACE.premium.listing)}/listing`, `Biaya transaksi marketplace ${MARKETPLACE.free.txPct}% → ${MARKETPLACE.premium.txPct}%`],
@@ -25,7 +25,7 @@ export default function Premium() {
     <div className="pm">
       <header className="pm__hero">
         <span className="pm__icon" aria-hidden="true"><Crown size={26} /></span>
-        <div><p className="pm__eyebrow">Langganan</p><h1>SIRKULA Premium</h1><p className="pm__lead">Biaya pengangkutan lebih hemat, laporan lebih lengkap, dan biaya marketplace lebih rendah.</p></div>
+        <div><p className="pm__eyebrow">Langganan</p><h1>SIRKULA Premium</h1><p className="pm__lead">Biaya pengangkutan lebih hemat, laporan lebih lengkap, dan biaya marketplace lebih rendah. Paket tahunan paling untung: hemat {rupiah(SAVINGS)}.</p></div>
       </header>
 
       {msg && <div className="pm__notice" role="status">{msg}</div>}
@@ -53,21 +53,24 @@ export default function Premium() {
       <section aria-label="Pilih paket">
         <h2 className="pm__h2">Pilih paket</h2>
         <div className="pm__plans">
-          <article className="pm__plan">
+          <article className="pm__plan pm__plan--best">
+            <span className="pm__tag"><Sparkles size={13} aria-hidden="true" />Paling hemat · Hemat {SAVE_PCT}%</span>
+            <h3>Tahunan</h3>
+            <p className="pm__big"><b>{rupiah(YEARLY_PER_MONTH)}</b><small>/bulan</small></p>
+            <p className="pm__yearly">Dibayar sekali {rupiah(YEARLY)}/tahun</p>
+            <div className="pm__save"><span><TrendingDown size={16} aria-hidden="true" />Anda menghemat</span><b>{rupiah(SAVINGS)}</b><small>dibanding {rupiah(MONTHLY * 12)} jika bayar bulanan 12 kali</small></div>
+            <ul className="pm__mini">{['Semua benefit Premium, tanpa putus 12 bulan', 'Harga terkunci, tidak ikut naik selama masa langganan', 'Setara ±2 bulan gratis'].map(x => <li key={x}><Check size={14} strokeWidth={3} aria-hidden="true" />{x}</li>)}</ul>
+            <div className="pm__actions"><button className="pm__btn pm__btn--lg" onClick={() => setPick('yearly')}>Ambil paket tahunan<ArrowRight size={16} aria-hidden="true" /></button></div>
+          </article>
+          <article className="pm__plan pm__plan--side">
             <h3>Bulanan</h3>
             <p className="pm__price">{rupiah(MONTHLY)}<small>/bulan</small></p>
             <p className="pm__note">{trialOk ? 'Coba gratis 3 hari lebih dulu, sekali per akun.' : 'Fleksibel, bisa dihentikan kapan saja.'}</p>
+            <p className="pm__nudge">12 bulan = {rupiah(MONTHLY * 12)}. Tahunan lebih murah {rupiah(SAVINGS)}.</p>
             <div className="pm__actions">
-              <button className="pm__btn" onClick={() => setPick('monthly')}>Pilih bulanan</button>
+              <button className="pm__btn pm__btn--ghost" onClick={() => setPick('monthly')}>Pilih bulanan</button>
               {trialOk && <button className="pm__btn pm__btn--ghost" onClick={() => setPick('trial')}>Coba gratis 3 hari</button>}
             </div>
-          </article>
-          <article className="pm__plan pm__plan--best">
-            <span className="pm__tag"><Sparkles size={13} aria-hidden="true" />Hemat {SAVE_PCT}%</span>
-            <h3>Tahunan</h3>
-            <p className="pm__price">{rupiah(YEARLY)}<small>/tahun</small></p>
-            <p className="pm__note">Setara ±{rupiah(YEARLY_PER_MONTH)}/bulan, dibanding {rupiah(MONTHLY * 12)} jika bayar bulanan selama 12 bulan.</p>
-            <div className="pm__actions"><button className="pm__btn" onClick={() => setPick('yearly')}>Pilih tahunan</button></div>
           </article>
         </div>
       </section>

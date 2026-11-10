@@ -8,7 +8,6 @@ import { useStore } from '../../store/StoreContext'
 import LangSwitch from '../../components/ui/LangSwitch'
 import CircularArt from '../../components/art/CircularArt'
 import StageVisual from './StageVisual'
-import Logo from '../../components/brand/Logo'
 // recharts (berat) dipisah ke chunk sendiri, diunduh setelah halaman pertama tampil sehingga tidak menahan first paint.
 const ImpactCharts = lazy(() => import('./ImpactCharts'))
 import { demoUser } from '../../lib/accounts'
@@ -68,7 +67,7 @@ export default function HomePage() {
     <div className="lp">
       <header className={`lp__nav${scrolled ? ' s' : ''}`}>
         <nav className="lp__navIn" aria-label="Main">
-          <Link to="/" className="lp__logo" aria-label="SIRKULA"><Logo variant="lockup" height={42} /></Link>
+          <Link to="/" className="lp__logo" aria-label="SIRKULA"><img className="lp__logoImg" src={`${import.meta.env.BASE_URL}brand/logo-full.svg`} alt="SIRKULA" height={52} /></Link>
           <div className="lp__links">{links.map(([h, l]) => <a key={h} href={h}>{t(l)}</a>)}<Link to="/app/marketplace">{t('Marketplace')}</Link></div>
           <div className="lp__acts"><LangSwitch /><Link to="/login" className="lp__ghost">{t('Sign in')}</Link><Link to="/signup" className="lp__btn">{t('Sign up')}</Link></div>
           <button className="lp__burger" onClick={() => setMenu(m => !m)} aria-label="Menu" aria-expanded={menu}>{menu ? <X size={22} /> : <Menu size={22} />}</button>
@@ -188,7 +187,7 @@ export default function HomePage() {
 
       <footer className="lp__foot">
         <div className="lp__wrap lp__footIn">
-          <Link to="/" className="lp__logo" aria-label="SIRKULA"><Logo variant="lockup" height={36} /></Link>
+          <Link to="/" className="lp__logo" aria-label="SIRKULA"><img className="lp__logoImg" src={`${import.meta.env.BASE_URL}brand/logo-full.svg`} alt="SIRKULA" height={60} /></Link>
           <span>{t('SIRKULA · Prototype with demo data')}</span>
           <div><a href="#how">{t('How it works')}</a><Link to="/app/marketplace">{t('Marketplace')}</Link><Link to="/login">{t('Sign in')}</Link><Link to="/signup">{t('Sign up')}</Link></div>
         </div>

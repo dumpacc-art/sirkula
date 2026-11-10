@@ -149,3 +149,5 @@
 @media (prefers-reduced-motion:reduce){.lp__pill i,.sv__trail{animation:none}}
 
 .lp__mobileRow .lang-switch{margin-right:auto}
+
+.lp__logoImg{display:block;width:auto;height:52px;max-width:100%}.lp__foot .lp__logoImg{height:60px}

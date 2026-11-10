@@ -29,6 +29,7 @@
 .skp__grid--2{grid-template-columns:repeat(2,minmax(0,1fr))}
 .skp__grid--3{grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
 .skp__grid--kpi{grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px}
+.skp__grid--kpi12{grid-template-columns:repeat(6,minmax(0,1fr));gap:12px}
 .skp__grid--adk{grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px}
 .skp__grid--wide{gap:24px}
 .skp__kpi{gap:10px;padding:16px;min-height:92px}
@@ -83,3 +84,6 @@
   .skp__notif{flex-direction:column}
   .skp__products{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
 }
+
+@media (max-width:1180px){.skp__grid--kpi12{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media (max-width:560px){.skp__grid--kpi12{grid-template-columns:repeat(2,minmax(0,1fr))}}
